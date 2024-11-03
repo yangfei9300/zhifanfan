@@ -1,0 +1,55 @@
+page{
+	background-color: #f7f7f7;
+}
+.topview{
+	width: 750rpx;
+	height: 600rpx;
+	background-image: url(https://shandongtibohui.zsyflive.com/profile/index4top.png);
+	background-size: 100% 100%;
+	position: fixed;
+	top: 0rpx;
+}
+.topgoodvie{
+	width: 650rpx;
+	height: 390rpx;
+	background-color: rgba(157, 173, 49,  0.5);
+	border-radius: 20rpx;
+	position: absolute;
+	bottom: -120rpx;
+	margin-left: 50rpx;
+}
+.jinrichaoditxt{
+	font-weight: bold;
+	color: white;
+	line-height: 60rpx;
+	font-size: 40rpx;
+	border-bottom: 2px solid #ffffff;
+}
+.topgoodview{
+	background-color: #FFEDED;padding:20rpx 20rpx;margin-right:10rpx;
+	border-radius: 15rpx;
+}
+.bottomview{
+	width: 700rpx;
+	background-image: url(https://shandongtibohui.zsyflive.com/profile/index4b.png);
+	background-size: 100% 100%;
+	margin:25rpx;
+	position: relative;
+	padding-top: 30rpx;
+}
+.bottomviewgood{
+	background-color: rgba(255, 230, 230, 0.5);
+	padding:8rpx;
+	border-radius: 20rpx;
+	margin-bottom: 20rpx;
+}
+.typetxtsel{
+	color: #647015;
+	font-weight: bold;
+	-webkit-text-stroke: 1px #FF9E9E;
+}
+.ditypet{
+	position: relative;bottom: -20rpx;font-weight: bold;
+	color: black;
+}
+

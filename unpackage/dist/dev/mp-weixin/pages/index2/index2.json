@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "v-tabs": "/components/v-tabs/v-tabs",
+    "home-good-item": "/components/homeGoodItem/homeGoodItem"
+  }
+}

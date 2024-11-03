@@ -1,0 +1,20 @@
+page{
+	background: #F7F7F7;
+	background-size: 100% 100%;
+}
+.topview{
+	width: 750rpx;
+	height: 494rpx;
+	background-image: url(https://shandongtibohui.zsyflive.com/profile/jifenshangceh.png);
+	background-size: 100% 100%;
+}
+.guizee{
+	background: linear-gradient(96.84deg, #CC9672 6.67%, #9C623A 100.76%);
+    width: 180rpx;
+	height: 70rpx;
+	line-height: 70rpx;
+	border-radius: 100rpx;
+	color: white;
+	text-align: center;
+	font-size: 27rpx;
+}

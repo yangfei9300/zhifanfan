@@ -1,0 +1,127 @@
+page{
+	background: #F7F7F7;
+	background-size: 100% 100%;
+}
+.topimg{
+	width: 750rpx;
+	position: fixed;
+	top: 0rpx;
+	z-index: 1;
+}
+/* 胶囊按钮哪一行 */
+.topviewbutton {
+	width: 750rpx;
+	position: fixed;
+	z-index: 999;
+}
+.leftsousuo {
+	width: 460rpx;
+	border-radius: 100rpx;
+	border:#FFA0C1 solid 2rpx;
+}
+.sousuoright {
+	width: 96rpx;
+	height: 48rpx;
+	background: linear-gradient(100.47deg, #FFA0C1 7.09%, #FF7693 99.03%);
+	right: 20rpx;
+	border-radius: 100rpx;
+	text-align: center;
+	font-size: 25rpx;
+	color: white;
+	text-align: center;
+	line-height: 48rpx;
+}
+.leftsousuoimg {
+	width: 32rpx;
+	height: 32rpx;
+}
+.sstxt {
+	color: #996C7A;
+	font-size: 30rpx;
+}
+.bannerview {
+	width: 702rpx;
+	height: 812rpx;
+	
+	left: 24rpx;
+	opacity: 0px;
+	border-radius: 20rpx;
+	background-color: #996C7A;
+	position: relative;
+}
+.bannerbottom {
+	width: 678rpx;
+	height: 180rpx;
+	border-radius: 10px 0px 0px 0px;
+	background-color: white;
+	background: white;
+	position: absolute;
+	bottom: 10rpx;
+	margin: 12rpx;
+	border-radius: 20rpx;
+}
+.lefttxt {
+	width: 42rpx;
+	height: 152rpx;
+	border-radius: 6rpx 0px 0px 0px;
+	border: 1rpx 0px 0px 0px;
+	opacity: 0px;
+	border: 1px solid #4D000E;
+	font-size: 25rpx;
+	line-height: 37.5rpx;
+	text-align: center;
+	margin-top: 16rpx;
+	border-radius: 10rpx;
+}
+.goodview1{
+	width: 88rpx;
+	height: 170rpx;
+	opacity: 0px;
+	margin-right: 32rpx;
+}
+.goodname1{
+	font-size: 25rpx;
+	font-weight: bold;
+	color:#4D000E;
+	width: 100rpx;
+}
+.goodimg1{
+	width: 100rpx;
+	height: 100rpx;
+	opacity: 0px;
+	background-color: aqua;
+}
+.menusview{
+	width: 710rpx;
+	padding:0rpx 0rpx;
+	margin-left: 24rpx;
+}
+.menuicon{
+	width: 80rpx;
+	height: 80rpx;
+	background-color: red;
+	border-radius: 50%;
+}
+.colorzng{
+	color: #4D000E;
+}
+.banner2{
+	width: 702rpx;
+	margin-left: 24rpx;
+	gap: 0px;
+	margin-top: 20rpx;
+}
+.banner3{
+	width: 702rpx;
+	margin-left: 24rpx;
+	gap: 0px;
+	margin-top: 20rpx;
+}
+/* 限时特卖 */
+.xianshi{
+	width: 340rpx;
+	background: linear-gradient(180deg, rgba(254, 213, 215, 0.4) 0%, rgba(254, 213, 215, 0) 62.82%);
+	height: 304rpx;
+	border-radius: 24rpx;
+}
+

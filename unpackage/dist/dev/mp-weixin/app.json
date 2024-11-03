@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index2/index2",
+    "pages/index3/index3",
+    "pages/index4/index4",
+    "pages/index5/index5",
+    "pages/index41/index41",
+    "pages1/goodInfo/goodInfo"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#FFFfff",
+    "selectedColor": "#FF6883",
+    "color": "#000000",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "static/icon1.png",
+        "iconPath": "static/icon1.png"
+      },
+      {
+        "text": "积分商城",
+        "pagePath": "pages/index2/index2",
+        "selectedIconPath": "static/icon2.png",
+        "iconPath": "static/icon2.png"
+      },
+      {
+        "text": "能量心语",
+        "pagePath": "pages/index3/index3",
+        "selectedIconPath": "static/icon3.png",
+        "iconPath": "static/icon3.png"
+      },
+      {
+        "text": "会员商城",
+        "pagePath": "pages/index41/index41",
+        "selectedIconPath": "static/icon4.png",
+        "iconPath": "static/icon4.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/index5/index5",
+        "selectedIconPath": "static/icon5.png",
+        "iconPath": "static/icon5.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

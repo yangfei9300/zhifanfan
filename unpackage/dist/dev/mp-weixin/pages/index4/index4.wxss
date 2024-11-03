@@ -1,0 +1,95 @@
+page{
+	background: #F7F7F7;
+	background-size: 100% 100%;
+}
+.topview{
+	width: 750rpx;
+	height: 692rpx;
+	background: linear-gradient(107.21deg, #FF5772 10.18%, #FFAAB7 90.63%);
+	position: fixed;
+	top: 0rpx;
+}
+.barvie{
+	width: 750rpx;
+	position: absolute;
+}
+.fenh1{
+	min-width: 48rpx;
+	height: 48rpx;
+	background-color: #FF5772;
+	text-align: center;
+	line-height: 48rpx;
+	color: white;
+	font-size: 25rpx;
+}
+.maohao{
+	margin:0rpx 10rpx;
+	color: white;
+	font-weight: bold;
+}
+.leftimg{
+	width: 220rpx;
+	background-color: aquamarine;
+	height: 48rpx;
+	margin-right: 20rpx;
+}
+.goodtopview{
+	width: 670rpx;
+	/* height: 258rpx; */
+	position: absolute;
+	margin-left: 40rpx;
+	background: #F9E7F2;
+	border-radius: 20rpx;
+}
+.jianou{
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 20rpx;
+	background-color: red;
+}
+.jinrichaodi{
+	width: 128rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	font-weight: bold;
+	font-size: 30rpx;
+}
+.goodview1{
+	width: 88rpx;
+	opacity: 0px;
+	margin-right: 32rpx;
+}
+.goodname1{
+	font-size: 25rpx;
+	font-weight: bold;
+	color:#4D000E;
+	width: 100rpx;
+}
+.goodimg1{
+	width: 100rpx;
+	height: 100rpx;
+	opacity: 0px;
+	background-color: aqua;
+}
+.topmenus{
+	width:750rpx;
+	height: 128rpx;
+	border-radius: 20rpx 20rpx 0px 0px;
+	background: white;
+	position: absolute;
+	bottom: 0rpx;
+}
+.topmenus1{
+	padding-top: 20rpx;
+	width:750rpx;
+	height: 128rpx;
+	border-radius: 20rpx 20rpx 0px 0px;
+	background: linear-gradient(180deg, rgba(254, 213, 215, 0.4) 0%, rgba(254, 213, 215, 0) 84.09%);
+}
+.scrools{
+	padding:0rpx 20rpx 20rpx 20rpx;background-color: white;border-radius: 20rpx 20rpx 20rpx 20rpx;
+}
+.bottomview{
+	width: 700rpx;
+}
+
