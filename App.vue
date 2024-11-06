@@ -1,13 +1,13 @@
 <script>
 	export default {
-		onLoad() {
-		},
+		onLoad() {  
+		},    
 		onLaunch: function() {
 			uni.setStorageSync("meetingId",1);
-		},
+		},   
 		onShow: function() {
 			console.log('App Show');
-		},
+		},      
 		onHide: function() {
 			console.log('App Hide');
 		}
@@ -73,4 +73,7 @@
 		width: 100%;
 		height: 100%;
 	}
+	
+	
+	
 </style>

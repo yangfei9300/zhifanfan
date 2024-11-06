@@ -14,9 +14,9 @@ page{
 .headimg{
 	width: 120rpx;
 	height: 120rpx;
-	background-color: red;
 	border-radius: 50%;
 	margin-right: 30rpx;
+	border:2px solid #ffffff;
 }
 .username{
 	font-size: 30rpx;
@@ -64,8 +64,28 @@ page{
 }
 .dyview{
 	width: 704rpx;
-	height: 320rpx;
 	background-color: white;
 	border-radius: 23rpx;
 	margin:23rpx;
+}
+.jineview{
+	width: 650rpx;
+	background-color: #f7f7f7;
+	height: 120rpx;
+	margin:25rpx 25rpx;
+}
+.qushiyongbtn{
+	background-color: #FF6883;
+	border-radius: 100rpx;
+	text-align: center;
+	line-height: 70rpx;
+	height: 70rpx;
+	color: white;
+	font-size: 30rpx;
+	width: 150rpx;
+}
+.jinenum{
+	font-size: 50rpx;
+	font-weight: bold;
+	color: #FF6883;
 }

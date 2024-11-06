@@ -101,7 +101,7 @@ var components
 try {
   components = {
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 80))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 184))
     },
   }
 } catch (e) {
@@ -286,19 +286,20 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
+// import homeGoodItem from '@/components/homeGoodItem/homeGoodItem.vue';
 var _default = {
+  components: {
+    // homeGoodItem
+  },
   data: function data() {
     return {
       title: 'Hello',
       buttoninfo: {},
       //胶囊按钮信息
-      systemInfo: {} //设备信息
+      systemInfo: {},
+      //设备信息
+
+      scrollHeight: 0
     };
   },
   onLoad: function onLoad() {
@@ -309,7 +310,41 @@ var _default = {
     this.systemInfo = systemInfo;
     console.log(systemInfo);
   },
-  methods: {}
+  onPageScroll: function onPageScroll(res) {
+    console.log("--", res);
+    this.scrollHeight = res.scrollTop;
+  },
+  methods: {
+    toqiandao: function toqiandao(index) {
+      if (index == 1) {
+        uni.navigateTo({
+          url: "/pages2/qiandao/qiandao"
+        });
+      } else if (index == 2) {
+        uni.navigateTo({
+          url: "/pages1/orderList/orderList"
+        });
+      } else if (index == 3) {
+        uni.navigateTo({
+          url: "/pages2/orderZh/orderZh"
+        });
+      } else if (index == 4) {
+        uni.navigateTo({
+          url: "/pages2/orderZh/orderZh"
+        });
+      } else if (index == 5) {
+        uni.switchTab({
+          url: "/pages/index3/index3"
+        });
+      }
+    },
+    // 商品详情
+    toGoodinfo: function toGoodinfo() {
+      uni.navigateTo({
+        url: "/pages1/goodInfo/goodInfo"
+      });
+    }
+  }
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))

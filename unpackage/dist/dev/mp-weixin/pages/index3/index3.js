@@ -205,6 +205,30 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -212,7 +236,8 @@ var _default = {
       //胶囊按钮信息
       systemInfo: {},
       //设备信息
-      goodHight: 0
+      goodHight: 0,
+      scrollHeight: 0
     };
   },
   onLoad: function onLoad() {
@@ -227,7 +252,17 @@ var _default = {
     console.log("比例", bili);
     this.goodHight = bili * 557;
   },
-  methods: {}
+  onPageScroll: function onPageScroll(res) {
+    console.log("--", res);
+    this.scrollHeight = res.scrollTop;
+  },
+  methods: {
+    toInfo: function toInfo() {
+      uni.navigateTo({
+        url: "/pages1/nengliangInfo/nengliangInfo"
+      });
+    }
+  }
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))

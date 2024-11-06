@@ -1,0 +1,45 @@
+.bgview{
+	width: 750rpx;
+	height: 100vh;
+	position: fixed;
+	left: 0rpx;
+	top: 0rpx;
+}
+.menyview{
+	background-image: url(https://shandongtibohui.zsyflive.com/profile/底纹图片.png);
+	background-size: 100% 100%;
+	width: 700rpx;
+	margin:25rpx;
+	padding:25rpx;
+}
+
+.typetxt{
+	font-weight: bold;
+	color: black;
+	font-size: 25rpx;
+}
+.fenseline{
+	width: 40rpx;
+	height: 10rpx;
+	background-color: #FF6883;
+	margin-top: 10rpx;
+	border-radius: 120rpx;
+}
+.inputview{
+	width: 700rpx;
+	border: 2px solid #FF6883;
+	border-radius: 40rpx;
+}
+.inputmoreview{
+	border: #FF6883 2px solid;
+	width: 650rpx;
+	border-radius: 20rpx;
+	margin:25rpx;
+	height: 100rpx;
+}
+.tabsivon{
+	position: absolute;
+	top: -100rpx;
+	border-radius: 50%;
+	left: 250rpx;
+}

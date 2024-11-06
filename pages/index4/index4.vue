@@ -22,18 +22,22 @@
 				<view class="h-20"></view>
 				<view class="roww center_center " style="padding:0rpx 20rpx;">
 					<image class="jianou"></image>
-					<view class="jinrichaodi">今日抄底</view>
+					<view class="jinrichaodi" @click.stop="toguize">今日抄底</view>
 					<view class="allline"></view>
 					<view class="roww">
 						<image class="w-30 h-30 bgg1"></image>
 						<view class="w-15"></view>
-						<view class="fs-25" style="color: #FE236C;">规则</view>
+						<view class="fs-25" style="color: #FE236C;"
+						@click.stop="toguize"
+						>规则</view>
 					</view>
 				</view>
 				<view class="h-20"></view>
 				<scroll-view scroll-x class="w-670 roww scrools">
 					<view class="roww ">
-						<view class="goodview1 colonn" v-for="(item,index) in 18">
+						<view class="goodview1 colonn" v-for="(item,index) in 18"
+						@click.stop="toInfo"
+						>
 							<view class="h-26"></view>
 							<image class="goodimg1"></image>
 							<view class="h-10"></view>
@@ -121,6 +125,19 @@
 			
 		},
 		methods: {
+			toguize(){
+				uni.navigateTo({
+					url:"/pages1/guizeshuoming/guizeshuoming",
+					complete: (res) => {
+						console.log("===",res);
+					}
+				})
+			},
+			toInfo(){
+				uni.navigateTo({
+					url:"/pages1/goodInfo/goodInfo"
+				})
+			},
 			changeTab(index) {
 				console.log('当前选中的项：' + index)
 			},

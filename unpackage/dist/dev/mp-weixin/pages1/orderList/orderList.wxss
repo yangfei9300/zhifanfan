@@ -1,0 +1,22 @@
+page{
+	background-color: #f7f7f7;
+}
+.orderview{
+	width: 700rpx;
+	background-color: white;
+	border-radius: 20rpx;
+	padding:20rpx;
+	margin:25rpx;
+}
+.goodimg{
+	width: 150rpx;
+	height: 150rpx;
+	margin-right: 20rpx;
+}
+.statview{
+	background-color: #FFEEEE;
+	line-height: 50rpx;
+	border-radius: 10rpx;
+	padding:0rpx 10rpx;
+}
+

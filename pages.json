@@ -53,6 +53,85 @@
 			{
 				"navigationBarTitleText" : "产品详情"
 			}
+		},
+		{
+			"path" : "pages1/nengliangInfo/nengliangInfo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "详情"
+			}
+		},
+		{
+			"path" : "pages1/orderList/orderList",
+			"style" : 
+			{
+				"navigationBarTitleText" : "订单列表"
+			}
+		},
+		{
+			"path" : "pages1/myChart/myChart",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的购物车"
+			}
+		},
+		{
+			"path" : "pages1/wodezuji/wodezuji",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的足迹"
+			}
+		},
+		{
+			"path" : "pages1/myAddress/myAddress",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的收货地址"
+			}
+		},
+		{
+			"path" : "pages1/addAddress/addAddress",
+			"style" : 
+			{
+				"navigationBarTitleText" : "添加地址"
+			}
+		},
+		{
+			"path" : "pages1/guizeshuoming/guizeshuoming",
+			"style" : 
+			{
+				"navigationBarTitleText" : "规则说明"
+			}
+		},
+		{
+			"path" : "pages1/userInfo/userInfo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "用户信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages2/gldyId/gldyId",
+			"style" : 
+			{
+				"navigationBarTitleText" : "关联抖音账号"
+			}
+		},
+		{
+			"path" : "pages2/qiandao/qiandao",
+			"style" : 
+			{
+				"navigationBarTitleText" : "签到",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages2/orderZh/orderZh",
+			"style" : 
+			{
+				"navigationBarTitleText" : "订单转换"
+			}
 		}
 	],
 	"globalStyle": {

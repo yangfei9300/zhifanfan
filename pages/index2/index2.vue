@@ -1,5 +1,8 @@
 <template>
 	<view>
+		
+		
+		
 		<view class="topview colonn"
 		>
 			<view
@@ -21,8 +24,8 @@
 				<v-tabs
 				bgColor=""
 				 v-model="current"
-				 activeColor="#21B783" 
-				 lineColor="#21B783"  
+				 activeColor="#FFA0C1" 
+				 lineColor="#FFA0C1"  
 				 :scroll="false" 
 				 :tabs="tabs" 
 				 @change="changeTab"

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "签到",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "home-good-item": "/components/homeGoodItem/homeGoodItem"
+  }
+}

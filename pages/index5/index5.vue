@@ -6,18 +6,20 @@
 						'height':(buttoninfo.bottom)+'px',
 					}"></view>
 				<view class="roww center_center p-all-24">
-					<image class="headimg"></image>
+					<image class="headimg " src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/good1.png"></image>
 					<view class="colonn rowsa h-120">
 						<view class="username">枝繁繁的能量女孩</view>
 						<view class="userid">ID：12361872461728</view>
 					</view>
 					<view class="allline"></view>
 				</view>
-				<image src="/static/vipqiandao.png" class="roww vipimg " mode="widthFix">
-
+				<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/签到4xxx.png" 
+				class="roww vipimg " mode="widthFix">
 				</image>
 				<view class="background1 myoer1">
-					<view class="myorderview colonn">
+					<view class="myorderview colonn"
+					@click.stop="toorder"
+					>
 						<view class="roww">
 							<view class="myordertxt">我的订单</view>
 							<view class="allline"></view>
@@ -46,9 +48,21 @@
 
 
 			<view class="dyview colonn">
-				<view class="roww rowsa">
-					<image src="/static/dy1.png" class="w-330 h-165" ></image>
-					<image src="/static/xhs1.png" class="w-330 h-165" ></image>
+				<view class="h-20"></view>
+				<view class="roww rowsa" @click.stop="tozhuanhuan">
+					<image src="https://shandongtibohui.zsyflive.com/profile/dy1.png" 
+					class="w-300 h-145" mode="widthFix"></image>
+					<image src="https://shandongtibohui.zsyflive.com/profile/xhs1.png" 
+					class="w-300 h-145"  mode="widthFix"></image>
+				</view>
+				<view class="jineview roww center_center">
+					<view class="w-20"></view>
+					<image src="/static/jinbi.png" class="w-50 h-50"></image>
+					<view class="fw-600 fs-30 m-left-20 m-right-20">我的积分</view>
+					<view class="jinenum">100</view>
+					<view class="allline"></view>
+					<view class="qushiyongbtn">去使用</view>
+					<view class="w-20"></view>
 				</view>
 			</view>
 
@@ -58,7 +72,8 @@
 				</view>
 				<view class="h-30"></view>
 				<view class="roww rowsa">
-					<view class="colonn center_center" v-for="(item,index) in bottommens"
+					<view class="colonn allline center_center" v-for="(item,index) in bottommens"
+					@click.stop="topage(index+1)"
 					v-if="index<5"
 					>
 						<image class="ordericon" :src="item.icon"></image>
@@ -69,16 +84,17 @@
 				<view class="h-20"></view>
 				<view class="roww rowsa">
 					<view class="colonn center_center" v-for="(item,index) in bottommens"
+					@click.stop="topage(index+1)"
 					v-if="index>=5"
 					>
 						<image class="ordericon" :src="item.icon"></image>
 						<view class="h-10"></view>
-						<view class="daifukuantxx">待付款</view>
+						<view class="daifukuantxx">{{item.title}}</view>
 					</view>
 					<view class="colonn center_center yincang1" v-for="(item,index) in 3">
 						<view class="ordericon"></view>
 						<view class="h-10"></view>
-						<view class="daifukuantxx">待付款</view>
+						<view class="daifukuantxx">联系客服</view>
 					</view>
 				</view>
 			</view>
@@ -148,10 +164,38 @@
 			// 顶部的高度转换
 			var bili = systemInfo.windowWidth / 750;
 			console.log("比例", bili);
-			this.goodHight = bili * 717;
+			this.goodHight = bili * 770;
 		},
 		methods: {
-
+			tozhuanhuan(){
+				uni.navigateTo({
+					url:"/pages2/orderZh/orderZh"
+				})
+			},
+			topage(index){
+				if(index==1){
+					uni.navigateTo({
+						url:"/pages1/myChart/myChart"
+					})
+				}else if(index==3){
+					uni.navigateTo({
+						url:"/pages1/myAddress/myAddress"
+					})
+				}else if(index==4){
+					uni.navigateTo({
+						url:"/pages1/guizeshuoming/guizeshuoming"
+					})
+				}else if(index==5){
+					uni.navigateTo({
+						url:"/pages1/userInfo/userInfo"
+					})
+				}
+			},
+			toorder(){
+				uni.navigateTo({
+					url:"/pages1/orderList/orderList"
+				})
+			}
 		}
 	}
 </script>

@@ -1,28 +1,29 @@
-.goodview{
+.goodview {
 	width: 340rpx;
-	height: 572rpx;
+	/* height: 572rpx; */
 	top: 1101rpx;
-	left: 12rpx;
+	left: 12rpx;  
 	gap: 0px;
-	opacity: 0px;
 	background-color: white;
 	border-radius: 20rpx;
-	margin-bottom: 20rpx;
+	margin-bottom: 30rpx;
+	padding-bottom: 10rpx;
 }
-.goodname{
+
+.goodname {
 	width: 292rpx;
 	height: 80rpx;
-	opacity: 0px;
 	line-height: 40rpx;
 	text-align: left;
 	font-size: 28rpx;
 }
-.xinpinicon{
+
+.xinpinicon {
 	width: 64rpx;
 	height: 32rpx;
-	background-color: chartreuse;
 }
-.yishou{
+
+.yishou {
 	color: #9D9D9D;
-	font-size: 30rpx;
+	font-size: 25rpx;
 }

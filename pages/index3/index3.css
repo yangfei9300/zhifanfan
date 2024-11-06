@@ -15,7 +15,7 @@ page{
 	height: 557rpx;
 	gap: 0px;
 	/* background: linear-gradient(180deg, #FDE3E4 0%, #F7F7F7 100%); */
-	position: fixed;
+	position: absolute;
 	top: 0rpx;
 	z-index: 50;
 }
@@ -40,4 +40,11 @@ page{
 	background-color: #FF6883;
 	margin-top: 10rpx;
 	border-radius: 120rpx;
+}
+
+/* 胶囊按钮哪一行 */
+.topviewbutton {
+	width: 750rpx;
+	position: fixed;
+	z-index: 999;
 }

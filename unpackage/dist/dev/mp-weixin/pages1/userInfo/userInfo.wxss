@@ -1,0 +1,26 @@
+.topimgZ{
+	width: 500rpx;
+	position: fixed;
+	left: 0rpx;
+	top: 0rpx;
+}
+.headerimg{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	border:1px solid #ffffff;
+}
+.line112{
+	width: 50rpx;
+	height: 10rpx;
+	background-color: #FF6883;
+	border-radius: 100rpx;
+}
+.tias{
+	width: 530rpx;
+	height: 100rpx;
+	background-color: #f5f5f5;
+	line-height: 70rpx;
+	border-radius: 20rpx;
+}
+

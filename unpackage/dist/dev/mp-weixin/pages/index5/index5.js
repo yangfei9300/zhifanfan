@@ -230,6 +230,22 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -288,9 +304,39 @@ var _default = {
     // 顶部的高度转换
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
-    this.goodHight = bili * 717;
+    this.goodHight = bili * 770;
   },
-  methods: {}
+  methods: {
+    tozhuanhuan: function tozhuanhuan() {
+      uni.navigateTo({
+        url: "/pages2/orderZh/orderZh"
+      });
+    },
+    topage: function topage(index) {
+      if (index == 1) {
+        uni.navigateTo({
+          url: "/pages1/myChart/myChart"
+        });
+      } else if (index == 3) {
+        uni.navigateTo({
+          url: "/pages1/myAddress/myAddress"
+        });
+      } else if (index == 4) {
+        uni.navigateTo({
+          url: "/pages1/guizeshuoming/guizeshuoming"
+        });
+      } else if (index == 5) {
+        uni.navigateTo({
+          url: "/pages1/userInfo/userInfo"
+        });
+      }
+    },
+    toorder: function toorder() {
+      uni.navigateTo({
+        url: "/pages1/orderList/orderList"
+      });
+    }
+  }
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))

@@ -1,8 +1,29 @@
 <template>
 	<view>
 		<view class="colonn">
+			
+			<view
+			style="width: 750rpx;background-color: white;z-index: 100000;position: fixed;top: 0rpx;"
+				:style="{
+					height:(buttoninfo.bottom+20)+'px'
+				}" v-if="scrollHeight>20"
+			>
+				<view class="topviewbutton roww center_center"
+				:style="{
+					'height':buttoninfo.height+'px',
+					'top':buttoninfo.top+'px',
+				}" 
+				style="background-color: white;color: black;"
+				>
+					<view>能量心语</view>
+				</view>
+				
+			</view>
+			
+			
+			
 			<image src="https://shandongtibohui.zsyflive.com/profile/Maskgroup.png"
-			mode="widthFix" class="w-750 topviewfix"
+			mode="widthFix" class="w-750 topviewfix pore"
 			></image>
 			<view class="topview colonn">
 				<view style="width: 750rpx;" :style="{
@@ -11,7 +32,7 @@
 
 				<swiper class="w-710 h-280 m-all-20">
 					<swiper-item class="w-710 h-280">
-						<image src="/static/banner1.png" class="w-710 h-280"></image>
+						<image src="https://shandongtibohui.zsyflive.com/profile/banner1.png" class="w-710 h-280"></image>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -28,7 +49,9 @@
 					style="width: 710rpx;margin:20rpx;"
 				>
 					<view class="w-710 roww">
-						<image class="img111" src="/static/Group_166.png" v-for="(item,index) in 5"></image>
+						<image class="img111"
+						 @click.stop="toInfo"
+						 src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/Group 1654xx.png" v-for="(item,index) in 5"></image>
 					</view>
 				</scroll-view>
 				<view class="colonn bottombigview">
@@ -50,7 +73,8 @@
 					
 					<view class="huanhang rowsb p-all-20">
 						<image v-for="(item,index) in 3"
-							src="/static/img1.png" 
+						@click.stop="toInfo"
+							src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/imageneng4xx.png" 
 							class="w-340 h-520 m-bottom-20" 
 							mode="widthFix"
 						></image>
@@ -69,6 +93,7 @@
 				buttoninfo: {}, //胶囊按钮信息
 				systemInfo: {}, //设备信息
 				goodHight: 0,
+				scrollHeight:0,
 			}
 		},
 		onLoad() {
@@ -83,8 +108,16 @@
 			console.log("比例", bili);
 			this.goodHight = bili * 557;
 		},
+		onPageScroll(res) {
+			console.log("--",res);
+			this.scrollHeight=res.scrollTop;
+		},
 		methods: {
-
+			toInfo(){
+				uni.navigateTo({
+					url:"/pages1/nengliangInfo/nengliangInfo"
+				})
+			}
 		}
 	}
 </script>

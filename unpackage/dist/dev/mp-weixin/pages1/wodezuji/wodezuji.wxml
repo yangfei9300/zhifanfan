@@ -1,0 +1,1 @@
+<view><view class="huanhang rowsb p-all-20"><block wx:for="{{5}}" wx:for-item="item" wx:for-index="index"><home-good-item vue-id="{{'dfea292a-1-'+index}}" bind:__l="__l"></home-good-item></block></view></view>

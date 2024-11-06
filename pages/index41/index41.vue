@@ -2,13 +2,12 @@
 	<view>
 		<view class="colonn">
 			<view class="topview pore">
-				<image src="../../static/分组 1.png" 
+				<image src="https://shandongtibohui.zsyflive.com/profile/分组 1.png" 
 				:style="{
 					'height':buttoninfo.height+'px',
 					'top':(buttoninfo.top-10)+'px',
 				}" style="position: fixed;"
 				class="w-400 m-left-175" mode="widthFix"></image>
-				
 				<view class="topgoodvie colonn">
 					<view class="roww duiqi" style="color: white;padding:20rpx 30rpx 0rpx 30rpx;">
 						<view class="jinrichaoditxt">今日抄底</view>
@@ -21,7 +20,7 @@
 							<view class="colonn center_center topgoodview"
 							v-for="(item,index) in 10"
 							>
-								<image src="../../static/index4top.png" class="w-120 h-120" mode="aspectFill"></image>
+								<image src="https://shandongtibohui.zsyflive.com/profile/index4top.png" class="w-120 h-120" mode="aspectFill"></image>
 								<view class="h-10"></view>
 								<view class="fs-20 txtShowLength" style="color: #474747;">华油立减</view>
 								<view class="h-10"></view>
@@ -64,7 +63,7 @@
 				</view>
 				<view class="huanhang rowsb p-all-30">
 					<view class="colonn bottomviewgood" v-for="(item,index) in 5">
-						<image src="../../static/img1.png" 
+						<image src="https://shandongtibohui.zsyflive.com/profile/img1.png" 
 						mode="aspectFill br-20"
 						class="w-300 h-300"></image>
 						<view class="h-10"></view>
