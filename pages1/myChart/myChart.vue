@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<view class="colonn">
-			<view class="roww goodview" v-for="(item,index) in 15">
+			<view class="roww goodview" v-for="(item,index) in goodList">
 				<image class="goodimg" 
-				src="/static/good.png"></image>
+				:src="item.src"></image>
 				<view class="colonn">
 					<view class="w-500 fs-30 txtShowLength1"
 					style="font-weight: bold;"
@@ -58,7 +58,17 @@
 	export default {
 		data() {
 			return {
-				
+				goodList:[
+					{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+					}
+				]
 			}
 		},
 		methods: {

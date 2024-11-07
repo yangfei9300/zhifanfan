@@ -224,11 +224,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -250,7 +245,7 @@ var _default = {
     // 顶部的高度转换
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
-    this.goodHight = bili * 557;
+    this.goodHight = bili * 527;
   },
   onPageScroll: function onPageScroll(res) {
     console.log("--", res);

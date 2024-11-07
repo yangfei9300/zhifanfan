@@ -101,7 +101,7 @@ var components
 try {
   components = {
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 184))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
     },
   }
 } catch (e) {

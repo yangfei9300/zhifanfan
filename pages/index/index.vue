@@ -14,8 +14,7 @@
 		</view>
 
 		<block v-else>
-			<image class="topimg" 
-			src="https://shandongtibohui.zsyflive.com/profile/shouye.png" mode="widthFix"></image>
+			<image class="topimg" src="https://shandongtibohui.zsyflive.com/profile/shouye.png" mode="widthFix"></image>
 			<view class="topviewbutton" :style="{
 			'height':buttoninfo.height+'px',
 			'top':buttoninfo.top+'px',
@@ -52,13 +51,26 @@
 					<scroll-view scroll-x class="w-580 roww">
 						<view class="roww ">
 
-							<view class="goodview1 colonn" v-for="(item,index) in 18" @click.stop="toGoodinfo">
+							<view class="goodview1 colonn" 
+							v-for="(item,index) in goodList" @click.stop="toGoodinfo">
 								<view class="h-26"></view>
-								<image class="goodimg1" src="https://shandongtibohui.zsyflive.com/profile/good.png">
+								<image class="goodimg1" 
+								:src="item.src">
 								</image>
 								<view class="h-10"></view>
 								<view class="goodname1 txtShowLength">洁柔纸抽</view>
 							</view>
+							
+							<view class="goodview1 colonn"
+							v-for="(item,index) in goodList" @click.stop="toGoodinfo">
+								<view class="h-26"></view>
+								<image class="goodimg1" 
+								:src="item.src">
+								</image>
+								<view class="h-10"></view>
+								<view class="goodname1 txtShowLength">洁柔纸抽</view>
+							</view>
+							
 						</view>
 					</scroll-view>
 				</view>
@@ -75,12 +87,12 @@
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">我的订单</view>
 				</view>
-				<view class="colonn center_center" @click.stop="toqiandao(3)">
+				<view class="colonn center_center" @click.stop="toqiandao(3,1)">
 					<image class="menuicon" src="../../static/Group 61.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">小红书转换</view>
 				</view>
-				<view class="colonn center_center" @click.stop="toqiandao(4)">
+				<view class="colonn center_center" @click.stop="toqiandao(4,2)">
 					<image class="menuicon" src="../../static/Group 62.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">抖音转换</view>
@@ -100,20 +112,22 @@
 			<image class="banner3" src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/home111.png">
 			</image>
 			<image class="banner2" src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/home222.png">
-			</image>  
+			</image>
 			<view class="roww rowsb p-all-25">
 				<view class="colonn">
 					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/left2x.png"
 						class="w-340 br-24 m-bottom-20" mode="widthFix"></image>
-					<homeGoodItem      
-				v-for="(item,index) in 8" >
-				</homeGoodItem>
+					<homeGoodItem v-for="(item,index) in goodList"
+					:obg="item"
+					>
+					</homeGoodItem>
 				</view>
 				<view class="colonn">
-					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/Group 15110.png" class="w-340" mode="widthFix"></image>
-					<homeGoodItem
-				v-for="(item,index) in 8" class="">
-				</homeGoodItem>
+					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/Group 15110.png" class="w-340"
+						mode="widthFix"></image>
+					<homeGoodItem v-for="(item,index) in goodList"
+					:obg="item" class="">
+					</homeGoodItem>
 				</view>
 			</view>
 		</view>
@@ -133,6 +147,17 @@
 				systemInfo: {}, //设备信息
 
 				scrollHeight: 0,
+				goodList:[
+					{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -148,7 +173,7 @@
 			this.scrollHeight = res.scrollTop;
 		},
 		methods: {
-			toqiandao(index) {
+			toqiandao(index,type) {
 				if (index == 1) {
 					uni.navigateTo({
 						url: "/pages2/qiandao/qiandao"
@@ -159,11 +184,11 @@
 					})
 				} else if (index == 3) {
 					uni.navigateTo({
-						url: "/pages2/orderZh/orderZh"
+						url: "/pages2/orderZh/orderZh?type="+type
 					})
 				} else if (index == 4) {
 					uni.navigateTo({
-						url: "/pages2/orderZh/orderZh"
+						url: "/pages2/orderZh/orderZh?type="+type
 					})
 				} else if (index == 5) {
 					uni.switchTab({

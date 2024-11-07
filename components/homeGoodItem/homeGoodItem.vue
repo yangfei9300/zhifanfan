@@ -2,7 +2,7 @@
 	<view>
 		<view class="colonn goodview" @click.stop="togoodinfo">
 			<image class="w-340  br-20" mode="widthFix" 
-			src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4x.png">
+			:src="obg.src">
 			</image>
 			<view class="h-20"></view>
 			<view class="goodname  w-284 m-left-28">
@@ -31,6 +31,12 @@
 <script>
 	export default {
 		name: "homeGoodItem",
+		props:{
+			'obg':{
+				type:Object,
+				value:null,
+			}
+		},
 		data() {
 			return {
 

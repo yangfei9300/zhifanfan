@@ -54,7 +54,7 @@
 					<view class="roww p-all-20"
 					v-for="(item,index) in 5"
 					>
-						<image  class="headers"></image>
+						<image  class="headers" src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/headers.png"></image>
 						<view class="w-20"></view>
 						<view class="colonn">
 							<view class="roww w-570">
@@ -90,7 +90,9 @@
 				<view class="colonn center_center" style="z-index: 1000;">
 					<image src="../../static/kuailaikan.png" class="w-200" mode="widthFix"></image>
 					<view class="h-30"></view>
-					<image src="/static/ch1.png" class="w-650" mode="widthFix"></image>
+					<image   
+					src="https://shandongtibohui.zsyflive.com/profile/产品图3.png" 
+					class="w-650" mode="widthFix"></image>
 				</view>
 			</view>
 			<view class="h-55"></view>
@@ -107,9 +109,12 @@
 				<view class="fs-50">39.99</view>
 			</view>
 			<view class="allline"></view>
-			<image src="../../static/shanchu.png" class="w-200" mode="widthFix"></image>
+			<image @click.stop="tochat()" 
+			src="https://shandongtibohui.zsyflive.com/profile/按钮 (6).png" 
+			class="w-200" mode="widthFix"></image>
 			<view class="w-30"></view>
-			<image src="../../static/lijigoumai.png" @click.stop="tochat" class="w-200" mode="widthFix"></image>
+			<image src="../../static/lijigoumai.png" 
+			@click.stop="toOrder" class="w-200" mode="widthFix"></image>
 			<view class="w-30"></view>
 		</view>
 	</view>
@@ -123,6 +128,11 @@
 			}
 		},
 		methods: {
+			toOrder(){
+				uni.navigateTo({
+					url:"/pages2/trueOrder/trueOrder"
+				})
+			},
 			tochat(){
 				uni.navigateTo({
 					url:"/pages1/myChart/myChart"

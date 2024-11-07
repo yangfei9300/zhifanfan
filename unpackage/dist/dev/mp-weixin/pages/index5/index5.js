@@ -240,12 +240,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -307,6 +301,11 @@ var _default = {
     this.goodHight = bili * 770;
   },
   methods: {
+    toqiandao: function toqiandao(index, type) {
+      uni.navigateTo({
+        url: "/pages2/orderZh/orderZh?type=" + type
+      });
+    },
     tozhuanhuan: function tozhuanhuan() {
       uni.navigateTo({
         url: "/pages2/orderZh/orderZh"

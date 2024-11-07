@@ -101,7 +101,7 @@ var components
 try {
   components = {
     vTabs: function () {
-      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 191))
+      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 199))
     },
   }
 } catch (e) {

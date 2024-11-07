@@ -1,12 +1,15 @@
 <template>
 	<view>
-		<image src="https://shandongtibohui.zsyflive.com/profile/bg.png" class="bgview"></image>
+		<image src="https://shandongtibohui.zsyflive.com/profile/bg.png" 
+		class="bgview"></image>
 		<view class="colonn center_center pore p-all-20">
-			<image src="https://shandongtibohui.zsyflive.com/profile/zhtb.png" class="w-500" mode="widthFix"></image>
+			<image 
+			:src="imgs[options.type-1].topimg" 
+			class="w-500" mode="widthFix"></image>
 			<view class="h-105"></view>
 			
 			<view class="inputview colonn pore">
-				<image src="/static/taobao.png" 
+				<image :src="imgs[options.type-1].yuan" 
 				class="w-200 tabsivon h-200"></image>
 				<view class="h-100"></view>
 				<view class="inputmoreview roww center_center">
@@ -25,9 +28,11 @@
 					</view>
 				</view>
 				<view class="roww center_center">
-					<image src="/static/zhuanhuanjilu.png" class="w-200" mode="widthFix"></image>
+					<image src="https://shandongtibohui.zsyflive.com/profile/zhuanhuanjilu.png" 
+					class="w-200" mode="widthFix"></image>
 					<view class="w-50"></view>
-					<image src="/static/zhuanhuanli.png" class="w-200" mode="widthFix"></image>
+					<image src="https://shandongtibohui.zsyflive.com/profile/lijizhuanhuan.png" 
+					class="w-200" mode="widthFix"></image>
 				</view>
 				<view class="h-30"></view>
 			</view>
@@ -82,8 +87,22 @@
 	export default {
 		data() {
 			return {
-				
+				imgs:[
+					{
+						'topimg':'https://shandongtibohui.zsyflive.com/profile/douyinorder.png',
+						'yuan':'/static/douyinyuan.png'
+						
+					},
+					{
+						'topimg':'https://shandongtibohui.zsyflive.com/profile/xiaohongshuorder.png',
+						'yuan':'/static/xiaohongshuyuan.png'
+					}
+				],
+				options:{}
 			}
+		},
+		onLoad(options) {
+			this.options=options;
 		},
 		methods: {
 			

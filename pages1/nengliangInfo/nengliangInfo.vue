@@ -1,14 +1,14 @@
 <template>
 	<view>
 		<view class="colonn">
-			<image src="https://shandongtibohui.zsyflive.com/profile/nl1.png" class="w-750" mode="widthFix"></image>
+			<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/nengin.png" class="w-750" mode="widthFix"></image>
 			
 			<view class="committ colonn pore" style="">
 				<view class="h-30"></view>
 				<image src="https://shandongtibohui.zsyflive.com/profile/goodinfobg.png" 
 				mode="widthFix" class="w-700 poab" style="top: 0rpx;"></image>
 				<view class="colonn center_center" style="z-index: 1000;">
-					<image src="../../static/zuhe.png" class="w-550" mode="widthFix"></image>
+					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/zuhe.png" class="w-550" mode="widthFix"></image>
 					<view class="h-30"></view>
 					<text style="padding:20rpx;">
 						福利1：会员赚积分兑好礼
@@ -88,7 +88,7 @@
 			
 		</view>
 		<view class="h-70"></view>
-		<image src="../../static/comment.png" class="w-750" mode="widthFix"
+		<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/底部购买.png" class="w-750" mode="widthFix"
 		style="position: fixed;bottom: 0rpx;background-color: white;z-index: 1000;"
 		></image>
 		

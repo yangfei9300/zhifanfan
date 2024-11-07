@@ -18,9 +18,22 @@
 					<scroll-view scroll-x style="width: 600rpx;margin-left: 25rpx;">
 						<view class="roww">
 							<view class="colonn center_center topgoodview"
-							v-for="(item,index) in 10"
+							v-for="(item,index) in goodList"
 							>
-								<image src="https://shandongtibohui.zsyflive.com/profile/index4top.png" class="w-120 h-120" mode="aspectFill"></image>
+								<image 
+								:src="item.src" class="w-120 h-120" mode="aspectFill"></image>
+								<view class="h-10"></view>
+								<view class="fs-20 txtShowLength" style="color: #474747;">华油立减</view>
+								<view class="h-10"></view>
+								<view class="roww duiqi ">
+									<view class="fs-25">￥</view>
+									<view class="fs-40 fw-700">4.9</view>
+								</view>
+							</view><view class="colonn center_center topgoodview"
+							v-for="(item,index) in goodList"
+							>
+								<image 
+								:src="item.src" class="w-120 h-120" mode="aspectFill"></image>
 								<view class="h-10"></view>
 								<view class="fs-20 txtShowLength" style="color: #474747;">华油立减</view>
 								<view class="h-10"></view>
@@ -62,8 +75,9 @@
 					 mode="widthFix"></image>
 				</view>
 				<view class="huanhang rowsb p-all-30">
-					<view class="colonn bottomviewgood" v-for="(item,index) in 5">
-						<image src="https://shandongtibohui.zsyflive.com/profile/img1.png" 
+					<view class="colonn bottomviewgood" v-for="(item,index) in goodList">
+						<image 
+						:src="item.src" 
 						mode="aspectFill br-20"
 						class="w-300 h-300"></image>
 						<view class="h-10"></view>
@@ -99,6 +113,17 @@
 				buttoninfo: {}, //胶囊按钮信息
 				systemInfo: {}, //设备信息
 				goodHight: 0,
+				goodList:[
+					{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+					}
+				]
 			}
 		},
 		onLoad() {

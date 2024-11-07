@@ -221,9 +221,26 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      imgs: [{
+        'topimg': 'https://shandongtibohui.zsyflive.com/profile/douyinorder.png',
+        'yuan': '/static/douyinyuan.png'
+      }, {
+        'topimg': 'https://shandongtibohui.zsyflive.com/profile/xiaohongshuorder.png',
+        'yuan': '/static/xiaohongshuyuan.png'
+      }],
+      options: {}
+    };
+  },
+  onLoad: function onLoad(options) {
+    this.options = options;
   },
   methods: {}
 };

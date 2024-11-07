@@ -258,11 +258,21 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {};
   },
   methods: {
+    toOrder: function toOrder() {
+      uni.navigateTo({
+        url: "/pages2/trueOrder/trueOrder"
+      });
+    },
     tochat: function tochat() {
       uni.navigateTo({
         url: "/pages1/myChart/myChart"

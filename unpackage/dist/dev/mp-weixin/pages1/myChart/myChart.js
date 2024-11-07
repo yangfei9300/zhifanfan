@@ -199,7 +199,17 @@ exports.default = void 0;
 //
 var _default = {
   data: function data() {
-    return {};
+    return {
+      goodList: [{
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+      }]
+    };
   },
   methods: {}
 };

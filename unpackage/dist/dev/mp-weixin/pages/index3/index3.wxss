@@ -11,7 +11,7 @@ page{
 }
 .topview{
 	width: 750rpx;
-	height: 557rpx;
+	height: 527rpx;
 	gap: 0px;
 	/* background: linear-gradient(180deg, #FDE3E4 0%, #F7F7F7 100%); */
 	position: absolute;

@@ -31,7 +31,8 @@
 		<view class="colonn">
 			<view class="colonn orderview">
 				<view class="roww">
-					<image class="goodimg" src="https://shandongtibohui.zsyflive.com/profile/good.png"></image>
+					<image class="goodimg" 
+					src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4x.png"></image>
 					<view class="colonn  rowsb">
 						<view class="roww duiqi"
 							style="line-height: 40rpx;">
@@ -64,11 +65,11 @@
 				<view class="h-20"></view>
 				<view class="roww center_center">
 					<view class="allline"></view>
-					<image src="/static/shanchuorder.png"
+					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/s4xxx.png"
 					class="w-150" mode="widthFix"
 					></image>
 					<view class="w-50"></view>
-					<image src="/static/zailaiyidan.png"
+					<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/z4xxx.png"
 					class="w-150" mode="widthFix"
 					></image>
 				</view>

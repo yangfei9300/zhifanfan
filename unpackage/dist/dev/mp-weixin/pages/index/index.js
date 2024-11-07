@@ -101,7 +101,7 @@ var components
 try {
   components = {
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 184))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
     },
   }
 } catch (e) {
@@ -286,6 +286,20 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import homeGoodItem from '@/components/homeGoodItem/homeGoodItem.vue';
 var _default = {
   components: {
@@ -299,7 +313,16 @@ var _default = {
       systemInfo: {},
       //设备信息
 
-      scrollHeight: 0
+      scrollHeight: 0,
+      goodList: [{
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+      }]
     };
   },
   onLoad: function onLoad() {
@@ -315,7 +338,7 @@ var _default = {
     this.scrollHeight = res.scrollTop;
   },
   methods: {
-    toqiandao: function toqiandao(index) {
+    toqiandao: function toqiandao(index, type) {
       if (index == 1) {
         uni.navigateTo({
           url: "/pages2/qiandao/qiandao"
@@ -326,11 +349,11 @@ var _default = {
         });
       } else if (index == 3) {
         uni.navigateTo({
-          url: "/pages2/orderZh/orderZh"
+          url: "/pages2/orderZh/orderZh?type=" + type
         });
       } else if (index == 4) {
         uni.navigateTo({
-          url: "/pages2/orderZh/orderZh"
+          url: "/pages2/orderZh/orderZh?type=" + type
         });
       } else if (index == 5) {
         uni.switchTab({

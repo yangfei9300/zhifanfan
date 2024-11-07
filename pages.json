@@ -132,11 +132,20 @@
 			{
 				"navigationBarTitleText" : "订单转换"
 			}
+		},
+		{
+			"path" : "pages2/trueOrder/trueOrder",
+			"style" : 
+			{
+				"navigationBarTitleText" : "确认订单",
+				"navigationBarBackgroundColor": "#FFA0C1",
+		"navigationBarTextStyle": "white"
+			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "枝繁繁",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},

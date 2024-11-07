@@ -17,12 +17,13 @@
     "pages1/userInfo/userInfo",
     "pages2/gldyId/gldyId",
     "pages2/qiandao/qiandao",
-    "pages2/orderZh/orderZh"
+    "pages2/orderZh/orderZh",
+    "pages2/trueOrder/trueOrder"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "枝繁繁",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

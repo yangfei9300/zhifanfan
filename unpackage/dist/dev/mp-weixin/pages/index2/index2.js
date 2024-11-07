@@ -101,10 +101,10 @@ var components
 try {
   components = {
     vTabs: function () {
-      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 191))
+      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 199))
     },
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 184))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
     },
   }
 } catch (e) {
@@ -229,6 +229,9 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -238,7 +241,16 @@ var _default = {
       //胶囊按钮信息
       systemInfo: {},
       //设备信息
-      goodHight: 0
+      goodHight: 0,
+      goodList: [{
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+      }]
     };
   },
   onLoad: function onLoad() {

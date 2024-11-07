@@ -45,13 +45,16 @@
 		<view class="roww rowsb p-all-25" >
 			<view class="colonn">
 				<homeGoodItem 
-				v-for="(item,index) in 8" class="">
+				v-for="(item,index) in goodList"
+				 :obg="item"
+				 class="">
 					
 				</homeGoodItem>
 			</view>
 			<view class="colonn">
 				<homeGoodItem
-				v-for="(item,index) in 8" class="">
+				v-for="(item,index) in goodList"
+				 :obg="item" class="">
 					
 				</homeGoodItem>
 			</view>
@@ -77,6 +80,18 @@
 				buttoninfo:{},//胶囊按钮信息
 				systemInfo:{},//设备信息
 				goodHight:0,
+				
+				goodList:[
+					{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+					}
+				]
 			}
 		},
 		onLoad() {
