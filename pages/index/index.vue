@@ -78,27 +78,27 @@
 			<view class="h-30"></view>
 			<view class="roww menusview rowsb">
 				<view class="colonn center_center" @click.stop="toqiandao(1)">
-					<image class="menuicon" src="../../static/Group 59.png" mode=""></image>
+					<image class="menuicon" src="https://shandongtibohui.zsyflive.com/profile/homemenu1.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">每日签到</view>
 				</view>
 				<view class="colonn center_center" @click.stop="toqiandao(2)">
-					<image class="menuicon" src="../../static/Group 60.png" mode=""></image>
+					<image class="menuicon" src="https://shandongtibohui.zsyflive.com/profile/homemenu2.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">我的订单</view>
 				</view>
-				<view class="colonn center_center" @click.stop="toqiandao(3,1)">
-					<image class="menuicon" src="../../static/Group 61.png" mode=""></image>
+				<view class="colonn center_center" @click.stop="toqiandao(3,2)">
+					<image class="menuicon" src="https://shandongtibohui.zsyflive.com/profile/homemenu3.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">小红书转换</view>
 				</view>
-				<view class="colonn center_center" @click.stop="toqiandao(4,2)">
-					<image class="menuicon" src="../../static/Group 62.png" mode=""></image>
+				<view class="colonn center_center" @click.stop="toqiandao(4,1)">
+					<image class="menuicon" src="https://shandongtibohui.zsyflive.com/profile/homemenu4.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">抖音转换</view>
 				</view>
 				<view class="colonn center_center" @click.stop="toqiandao(5)">
-					<image class="menuicon" src="../../static/Group 63.png" mode=""></image>
+					<image class="menuicon" src="https://shandongtibohui.zsyflive.com/profile/homemenu5.png" mode=""></image>
 					<view class="h-10"></view>
 					<view class="fs-25 colorzng">能量心语</view>
 				</view>

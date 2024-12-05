@@ -15,7 +15,7 @@
 .typetxt{
 	font-weight: bold;
 	color: black;
-	font-size: 25rpx;
+	font-size: 30rpx;
 }
 .fenseline{
 	width: 40rpx;

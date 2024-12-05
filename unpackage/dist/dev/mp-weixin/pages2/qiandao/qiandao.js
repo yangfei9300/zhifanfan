@@ -309,6 +309,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -317,7 +319,16 @@ var _default = {
       systemInfo: {},
       //设备信息
       goodHight: 0,
-      scrollHeight: 0
+      scrollHeight: 0,
+      goodList: [{
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+      }, {
+        'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+      }]
     };
   },
   onLoad: function onLoad() {

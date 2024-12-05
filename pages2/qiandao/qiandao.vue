@@ -35,7 +35,7 @@
 					'top':(buttoninfo.top+80)+'px',
 				}">
 				<view class="w-30"></view>
-				<image class="headers"></image>
+				<image class="headers" src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/headers.png"></image>
 				<view class="w-30"></view>
 				<view class="colonn" style="color: white;">
 					<view>枝繁繁的能量女孩</view>
@@ -112,7 +112,7 @@
 				</view>
 				<view class="roww  center_center m-all-20 br-25" 
 				style="padding:0rpx 20rpx 0rpx 0rpx;">
-					<image src="/static/dyy1.png" class="w-110 h-110"></image>
+					<image src="https://shandongtibohui.zsyflive.com/profile/dianzan.png" class="w-110 h-110"></image>
 					<view class="colonn rowsb ">
 						<view class="fs-35">
 							邀请新用户注册
@@ -135,7 +135,9 @@
 			</view>
 			<view class="h-60"></view>
 			<view class="huanhang rowsa">
-				<homeGoodItem v-for="(item,index) in 10"></homeGoodItem>
+				<homeGoodItem 
+				:obg="item"        
+				v-for="(item,index) in goodList"></homeGoodItem>
 			</view>
 		</view>
 
@@ -151,6 +153,18 @@
 				systemInfo: {}, //设备信息
 				goodHight: 0,
 				scrollHeight: 0,
+				
+				goodList:[
+					{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
+					},{
+						'src':'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
+					}
+				]
 			}
 		},
 		onLoad() {

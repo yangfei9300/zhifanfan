@@ -4,6 +4,34 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages2/orderZh/orderZh",
+          "pathName": "pages2/orderZh/orderZh",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/goodInfo/goodInfo",
+          "pathName": "pages1/goodInfo/goodInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages2/orderZh/orderZh",
+          "pathName": "pages2/orderZh/orderZh",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages2/qiandao/qiandao",
+          "pathName": "pages2/qiandao/qiandao",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages2/trueOrder/trueOrder",
           "pathName": "pages2/trueOrder/trueOrder",
           "query": "",

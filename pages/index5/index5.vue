@@ -59,7 +59,7 @@
 					<view class="fw-600 fs-30 m-left-20 m-right-20">我的积分</view>
 					<view class="jinenum">100</view>
 					<view class="allline"></view>
-					<view class="qushiyongbtn">去使用</view>
+					<view class="qushiyongbtn" @click="tojifen">去使用</view>
 					<view class="w-20"></view>
 				</view>
 			</view>
@@ -157,9 +157,13 @@
 			this.goodHight = bili * 770;
 		},
 		methods: {
-
+			tojifen(){
+				uni.switchTab({
+					url:"/pages/index2/index2"
+				})
+			},
 			toqiandao(index, type) {
-				uni.navigateTo({
+				uni.navigateTo({  
 					url: "/pages2/orderZh/orderZh?type=" + type
 				})
 			},

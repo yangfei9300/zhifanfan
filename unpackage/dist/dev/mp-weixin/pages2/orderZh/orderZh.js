@@ -226,6 +226,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -236,7 +238,19 @@ var _default = {
         'topimg': 'https://shandongtibohui.zsyflive.com/profile/xiaohongshuorder.png',
         'yuan': '/static/xiaohongshuyuan.png'
       }],
-      options: {}
+      options: {
+        type: 1
+      },
+      list: [{
+        id: 1,
+        title: '这是跑马灯消息数据第一条'
+      }, {
+        id: 2,
+        title: '这是跑马灯消息数据第二条'
+      }, {
+        id: 3,
+        title: '这是跑马灯消息数据第三条'
+      }]
     };
   },
   onLoad: function onLoad(options) {

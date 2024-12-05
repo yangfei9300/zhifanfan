@@ -90,14 +90,20 @@
 				<view class="colonn center_center" style="z-index: 1000;">
 					<image src="../../static/kuailaikan.png" class="w-200" mode="widthFix"></image>
 					<view class="h-30"></view>
-					<image   
-					src="https://shandongtibohui.zsyflive.com/profile/产品图3.png" 
+					<image
+					src="https://shandongtibohui.zsyflive.com/profile/产品图1 (1).png" 
+					class="w-650" mode="widthFix" style="position: relative;bottom: -3px;"></image>
+					<image
+					src="https://shandongtibohui.zsyflive.com/profile/产品图2.png" 
 					class="w-650" mode="widthFix"></image>
+					<image   
+					src="https://shandongtibohui.zsyflive.com/profile/产品图3 (2).png" 
+					class="w-650" mode="widthFix"></image>
+					<view class="h-30"></view>
 				</view>
 			</view>
-			<view class="h-55"></view>
-			<image src="https://shandongtibohui.zsyflive.com/profile/jifengz1.png" class="w-700 m-all-25" mode="widthFix"></image>
-			
+			<image src="https://shandongtibohui.zsyflive.com/profile/jifengz1.png" 
+			class="w-700 m-all-25" mode="widthFix"></image>
 			
 		</view>
 		

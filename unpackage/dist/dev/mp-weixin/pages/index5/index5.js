@@ -301,6 +301,11 @@ var _default = {
     this.goodHight = bili * 770;
   },
   methods: {
+    tojifen: function tojifen() {
+      uni.switchTab({
+        url: "/pages/index2/index2"
+      });
+    },
     toqiandao: function toqiandao(index, type) {
       uni.navigateTo({
         url: "/pages2/orderZh/orderZh?type=" + type

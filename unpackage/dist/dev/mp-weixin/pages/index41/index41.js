@@ -249,6 +249,10 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -280,7 +284,21 @@ var _default = {
     console.log("比例", bili);
     this.goodHight = bili * 720;
   },
-  methods: {}
+  methods: {
+    toguize: function toguize() {
+      uni.navigateTo({
+        url: "/pages1/guizeshuoming/guizeshuoming",
+        complete: function complete(res) {
+          console.log("===", res);
+        }
+      });
+    },
+    toInfo: function toInfo() {
+      uni.navigateTo({
+        url: "/pages1/goodInfo/goodInfo"
+      });
+    }
+  }
 };
 exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))

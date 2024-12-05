@@ -12,13 +12,14 @@
 					<view class="roww duiqi" style="color: white;padding:20rpx 30rpx 0rpx 30rpx;">
 						<view class="jinrichaoditxt">今日抄底</view>
 						<view class="allline"></view>
-						<view class="fs-25">规则</view>
+						<view class="fs-25" @click.stop="toguize">规则</view>
 					</view>
 					<view class="h-20"></view>
 					<scroll-view scroll-x style="width: 600rpx;margin-left: 25rpx;">
 						<view class="roww">
 							<view class="colonn center_center topgoodview"
 							v-for="(item,index) in goodList"
+							 @click.stop="toInfo()"
 							>
 								<image 
 								:src="item.src" class="w-120 h-120" mode="aspectFill"></image>
@@ -31,6 +32,7 @@
 								</view>
 							</view><view class="colonn center_center topgoodview"
 							v-for="(item,index) in goodList"
+							 @click.stop="toInfo()"
 							>
 								<image 
 								:src="item.src" class="w-120 h-120" mode="aspectFill"></image>
@@ -75,7 +77,9 @@
 					 mode="widthFix"></image>
 				</view>
 				<view class="huanhang rowsb p-all-30">
-					<view class="colonn bottomviewgood" v-for="(item,index) in goodList">
+					<view class="colonn bottomviewgood" 
+					v-for="(item,index) in goodList"
+							 @click.stop="toInfo()">
 						<image 
 						:src="item.src" 
 						mode="aspectFill br-20"
@@ -139,7 +143,19 @@
 			this.goodHight = bili * 720;
 		},
 		methods: {
-
+toguize(){
+				uni.navigateTo({
+					url:"/pages1/guizeshuoming/guizeshuoming",
+					complete: (res) => {
+						console.log("===",res);
+					}
+				})
+			},
+			toInfo(){
+				uni.navigateTo({
+					url:"/pages1/goodInfo/goodInfo"
+				})
+			},
 		}
 	}
 </script>
