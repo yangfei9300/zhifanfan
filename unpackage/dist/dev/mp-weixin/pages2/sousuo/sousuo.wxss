@@ -1,0 +1,10 @@
+.sousuoview{
+	width: 600rpx;
+	height:70rpx;
+	border-radius: 100rpx;
+	border:1px solid #E2546E;
+}
+page{
+	background-color: #f5f5f5;
+}
+

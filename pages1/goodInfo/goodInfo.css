@@ -29,3 +29,42 @@ page{
 	z-index: 1000;
 }
 
+.alertvr{
+	width: 750rpx;
+	height: 750rpx;
+	background-color: white;
+	border-radius: 20rpx 20rpx 0rpx 0rpx;
+	position: fixed;
+	left: 0rpx;
+	bottom: 0rpx;
+}
+.seliotem{
+	background-color: red;
+	color: white;
+	font-size: 27rpx;
+	padding:5rpx 15rpx;
+	border-radius: 5rpx;
+	margin-bottom: 15rpx;
+	margin-right: 15rpx;
+}
+.seliotem1{
+	background-color: #c9c9c9;
+	color: black;
+	font-size: 27rpx;
+	padding:5rpx 15rpx;
+	border-radius: 5rpx;
+	margin-bottom: 15rpx;
+	margin-right: 15rpx;
+}
+.jiajian{
+	width: 50rpx;
+	text-align: center;
+	height: 50rpx;
+	line-height: 45rpx;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 35rpx;
+	border-radius: 15rpx;
+	background-color:  #FF7693;
+}

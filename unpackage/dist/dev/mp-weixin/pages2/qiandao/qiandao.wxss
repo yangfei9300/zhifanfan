@@ -26,7 +26,7 @@ page{
 	position: absolute;
 	left: 25rpx;
 	bottom: 0rpx;
-	height: 660rpx;
+	height: 760rpx;
 }
 .months{
 	background-color: #FCE1E1;
@@ -41,6 +41,18 @@ page{
 	line-height: 50rpx;
 	font-weight: bold;
 	color: #000000;
+	text-align: center;
+	margin-right: 5rpx;
+	margin-left: 10rpx;
+	margin-bottom: 20rpx;
+}
+.dayviewno1{
+	background-color:#FCE1E1;
+	border-radius: 100rpx;
+	padding:0rpx 25rpx;
+	line-height: 50rpx;
+	font-weight: bold;
+	color:#FE236C;
 	text-align: center;
 	margin-right: 5rpx;
 	margin-left: 10rpx;

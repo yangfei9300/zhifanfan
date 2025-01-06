@@ -102,6 +102,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.goodList1, function (item, index) {
+    var $orig = _vm.__get_orig(item)
+    var g0 = item.goods.goods_spec.join(",")
+    return {
+      $orig: $orig,
+      g0: g0,
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -135,12 +151,21 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -208,12 +233,95 @@ var _default = {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
-      }]
+      }],
+      goodList1: [],
+      total: 0
     };
   },
-  methods: {}
+  onLoad: function onLoad() {
+    this.getMyChart();
+  },
+  methods: {
+    // 删除购物车商品
+    delgood: function delgood() {
+      var _this = this;
+      var ids = [];
+      for (var a = 0; a < this.goodList1.length; a++) {
+        if (this.goodList1[a].sel) {
+          ids.push(this.goodList1[a].car_id);
+        }
+      }
+      console.log('aaa', ids);
+      var data = {
+        'uuid': uni.getStorageSync("userInfo").id,
+        'car_ids': ids.join(",")
+      };
+      this.$axios.axios('POST', this.$paths.delCar, data).then(function (res) {
+        if (res.code == 1) {
+          _this.$tools.showToast("删除成功");
+          setTimeout(function (res) {
+            _this.getMyChart();
+          }, 1000);
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 计算钱
+    totalMoney: function totalMoney() {
+      var total = 0;
+      for (var a = 0; a < this.goodList1.length; a++) {
+        console.log(this.goodList1[a]);
+        if (this.goodList1[a].sel) {
+          total = total + this.goodList1[a].num * this.goodList1[a].goods.price_selling;
+        }
+      }
+      total = total.toFixed(2);
+      this.total = total;
+    },
+    selClick: function selClick(index) {
+      this.goodList1[index].sel = !this.goodList1[index].sel;
+      this.totalMoney();
+    },
+    countClick: function countClick(type, index) {
+      if (type == 1) {
+        if (this.goodList1[index].num >= 2) {
+          this.goodList1[index].num = this.goodList1[index].num - 1;
+        }
+      } else {
+        this.goodList1[index].num = this.goodList1[index].num + 1;
+      }
+      this.totalMoney();
+    },
+    // 获取购物车
+    getMyChart: function getMyChart() {
+      var _this2 = this;
+      var data = {
+        'uuid': uni.getStorageSync("userInfo").id
+      };
+      this.$axios.axios('POST', this.$paths.getCarList, data).then(function (res) {
+        if (res.code == 1) {
+          console.log("===", res);
+          var goodList1 = res.data;
+          for (var a = 0; a < goodList1.length; a++) {
+            goodList1[a].goods.price_selling1 = goodList1[a].goods.price_selling.split(".");
+            goodList1[a].sel = false;
+          }
+          _this2.goodList1 = goodList1;
+          _this2.totalMoney();
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    }
+  }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

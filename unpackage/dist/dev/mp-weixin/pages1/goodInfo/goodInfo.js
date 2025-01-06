@@ -269,11 +269,189 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      goodInfo: {},
+      options: {},
+      selSpace: null
+    };
+  },
+  onLoad: function onLoad(options) {
+    this.options = options;
+    this.getGoodInfo();
   },
   methods: {
+    addCart: function addCart() {
+      var _this = this;
+      if (!this.selSpace) {
+        this.$tools.showToast("请先选择规格");
+        return false;
+      }
+      var obg = {
+        code: this.goodInfo.code,
+        sku: this.selSpace.sku,
+        num: this.selSpace.count,
+        uuid: uni.getStorageSync("userInfo").id
+      };
+      this.$axios.axios('POST', this.$paths.addCar, obg).then(function (res) {
+        if (res.code == 1) {
+          _this.$tools.showToast("添加购物车成功");
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 规格点击事件
+    getcountClick: function getcountClick(type) {
+      if (!this.selSpace) {
+        this.$tools.showToast("请先选择规格");
+        return false;
+      }
+      if (type == 1) {
+        if (this.selSpace.count >= 2) {
+          this.selSpace.count = this.selSpace.count - 1;
+        }
+      } else if (type == 2) {
+        this.selSpace.count = this.selSpace.count + 1;
+      }
+      console.log('--', type, this.selSpace.count);
+      this.$forceUpdate();
+    },
+    // 判断选择的规格哪一个
+    getSelSpace: function getSelSpace(item, index, index1) {
+      var selspace = {};
+      var txtlust = [];
+      var spaceList = this.goodInfo.data_specs;
+      for (var a = 0; a < spaceList.length; a++) {
+        var list = spaceList[a].list;
+        for (var b = 0; b < list.length; b++) {
+          if (list[b].show) {
+            txtlust.push(list[b].group + "::" + list[b].name);
+          }
+        }
+      }
+      console.log('txtlust', txtlust, txtlust.join(";;"));
+      var spaceItems = this.goodInfo.data_items;
+      var txt = txtlust.join(";;");
+      var spaceindex = -1;
+      for (var a = 0; a < spaceItems.length; a++) {
+        if (spaceItems[a][0].key == txt) {
+          console.log("当前选择的规格", spaceItems[a][0]);
+          if (spaceItems[a][0].status) {
+            spaceindex = a;
+          } else {
+            this.goodInfo.data_specs[index].list[index1].show = false;
+            this.$tools.showToast("无此规格");
+          }
+        }
+      }
+      if (spaceindex >= 0) {
+        var selSpace = spaceItems[spaceindex][0];
+        selSpace.count = 1;
+        this.selSpace = selSpace;
+      } else {
+        this.selSpace = null;
+      }
+    },
+    // 选择商品规格
+    spaceClick: function spaceClick(item, index, index1) {
+      var data_specs = this.goodInfo.data_specs;
+      var list = data_specs[index].list;
+      console.log("===", list);
+      for (var b = 0; b < list.length; b++) {
+        if (index1 == b) {
+          list[b].show = true;
+        } else {
+          list[b].show = false;
+        }
+      }
+      data_specs[index].list = list;
+      console.log("==1=", list);
+      this.goodInfo.data_specs = data_specs;
+      this.$forceUpdate();
+      this.getSelSpace(item, index, index1);
+    },
+    // 获取商品详情
+    getGoodInfo: function getGoodInfo() {
+      var _this2 = this;
+      var data = {
+        'code': this.options.id
+      };
+      this.$axios.axios('POST', this.$paths.getGoodsInfo, data).then(function (res) {
+        if (res.code == 1) {
+          var goodInfo = res.data;
+          for (var b = 0; b < goodInfo.marks.length; b++) {
+            if (goodInfo.marks[b] == '新品') {
+              goodInfo.xinpin = true;
+            } else if (goodInfo.marks[b] == '热卖') {
+              goodInfo.remai = true;
+            }
+          }
+          // 整理规格
+          var spaceList = goodInfo.data_specs;
+          for (var a = 0; a < spaceList.length; a++) {
+            for (var b = 0; b < spaceList[a].list.length; b++) {
+              spaceList[a].list[b].show = false;
+            }
+          }
+          goodInfo.data_specs = spaceList;
+          _this2.goodInfo = goodInfo;
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
     toOrder: function toOrder() {
       uni.navigateTo({
         url: "/pages2/trueOrder/trueOrder"

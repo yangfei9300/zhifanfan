@@ -79,7 +79,8 @@
 				</view>
 				<view class="h-20"></view>
 				<view class="roww rowsa">
-					<view class="colonn center_center" v-for="(item,index) in bottommens" @click.stop="topage(index+1)"
+					<view class="colonn center_center" v-for="(item,index) in bottommens"
+					 @click.stop="topage(index+1)"
 						v-if="index>=5">
 						<image class="ordericon" :src="item.icon"></image>
 						<view class="h-10"></view>
@@ -174,11 +175,16 @@
 				})
 			},
 			topage(index) {
+				var userInfo=uni.getStorageSync("userInfo");
 				if (index == 1) {
 					uni.navigateTo({
 						url: "/pages1/myChart/myChart"
 					})
 				} else if (index == 3) {
+					if(!userInfo){
+						this.$tools.showToast("请先登录");
+						return false;
+					}
 					uni.navigateTo({
 						url: "/pages1/myAddress/myAddress"
 					})
@@ -187,6 +193,7 @@
 						url: "/pages1/guizeshuoming/guizeshuoming"
 					})
 				} else if (index == 5) {
+					
 					uni.navigateTo({
 						url: "/pages1/userInfo/userInfo"
 					})

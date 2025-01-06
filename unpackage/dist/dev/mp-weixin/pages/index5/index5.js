@@ -240,6 +240,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
@@ -317,11 +318,16 @@ var _default = {
       });
     },
     topage: function topage(index) {
+      var userInfo = uni.getStorageSync("userInfo");
       if (index == 1) {
         uni.navigateTo({
           url: "/pages1/myChart/myChart"
         });
       } else if (index == 3) {
+        if (!userInfo) {
+          this.$tools.showToast("请先登录");
+          return false;
+        }
         uni.navigateTo({
           url: "/pages1/myAddress/myAddress"
         });

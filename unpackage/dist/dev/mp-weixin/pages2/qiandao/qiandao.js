@@ -101,7 +101,7 @@ var components
 try {
   components = {
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 208))
     },
   }
 } catch (e) {
@@ -125,6 +125,15 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var g0 = _vm.days.length
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        g0: g0,
+      },
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -160,10 +169,37 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {
 
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -328,7 +364,11 @@ var _default = {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
-      }]
+      }],
+      nowMonthTxt: '',
+      nowMonthDate: '',
+      days: [],
+      userInfo: null
     };
   },
   onLoad: function onLoad() {
@@ -342,12 +382,152 @@ var _default = {
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
     this.goodHight = bili * 557;
+
+    // var year = now.getFullYear();
+    // var month = (now.getMonth() + 1).toString().padStart(2, '0');
+    // this.nowMonthDate=year+"-"+month;
+    this.userInfo = uni.getStorageSync("userInfo");
+    this.getCurrentMonthInChinese();
+    this.gGetUserSign();
   },
   onPageScroll: function onPageScroll(res) {
     console.log("--", res);
     this.scrollHeight = res.scrollTop;
   },
   methods: {
+    toduihuan: function toduihuan() {
+      uni.switchTab({
+        url: "/pages/index2/index2"
+      });
+    },
+    // 获取个人信息（）{}，
+    getUserInfo: function getUserInfo() {
+      var _this = this;
+      var data = {
+        uuid: this.userInfo.id
+      };
+      this.$axios.axios('POST', this.$paths.getUserData, data).then(function (res) {
+        if (res.code == 1) {
+          _this.userInfo.credit_balance = res.data.credit_balance;
+          uni.setStorageSync("userInfo", _this.userInfo);
+          _this.userInfo = _this.userInfo;
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取签到数据
+    gGetUserSign: function gGetUserSign() {
+      var _this2 = this;
+      var userInfo = uni.getStorageSync("userInfo");
+      var year = parseInt(this.nowMonthDate.split("-")[0]);
+      var month = parseInt(this.nowMonthDate.split("-")[1]); // 月份从 0 开始，所以要加 1
+
+      var data = {
+        uuid: userInfo.id,
+        month: year + "-" + month
+      };
+      this.$axios.axios('POST', this.$paths.getUserSign1, data).then(function (res) {
+        if (res.code == 1) {
+          console.log("res", res);
+          _this2.getDaysInCurrentMonth(res.data);
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    //点击签到
+    clickSign: function clickSign() {
+      var _this3 = this;
+      var now = new Date();
+      var year = now.getFullYear();
+      var month = (now.getMonth() + 1).toString().padStart(2, '0');
+      var day = now.getDate().toString().padStart(2, '0');
+      var dateStr = "".concat(year, "-").concat(month, "-").concat(day);
+      var userInfo = uni.getStorageSync("userInfo");
+      var data = {
+        uuid: userInfo.id,
+        date: dateStr
+      };
+      this.$axios.axios('POST', this.$paths.getuserSign, data).then(function (res) {
+        if (res.code == 1) {
+          _this3.gGetUserSign();
+          _this3.getUserInfo();
+        } else {
+          _this3.$tools.showToast(res.info);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取当前月的数据
+    getDaysInCurrentMonth: function getDaysInCurrentMonth(list) {
+      var now = new Date();
+      var year = parseInt(this.nowMonthDate.split("-")[0]);
+      var month = parseInt(this.nowMonthDate.split("-")[1]); // 月份从 0 开始，所以要加 1
+      var totalDays = new Date(year, month, 0).getDate(); // 获取当前月份的总天数
+      var days = [];
+      for (var day = 1; day <= totalDays; day++) {
+        var dateStr = "".concat(year, "-").concat(month.toString().padStart(2, '0'), "-").concat(day.toString().padStart(2, '0'));
+        var obg = {
+          'txt': dateStr,
+          'is': false,
+          'ri': dateStr.split("-")[2]
+        };
+        for (var a = 0; a < list.length; a++) {
+          if (list[a].date == dateStr) {
+            obg.is = true;
+          }
+        }
+        days.push(obg);
+      }
+      this.days = days;
+      console.log("==daysdays==", days);
+    },
+    // 获取当前月 汉字
+    getCurrentMonthInChinese: function getCurrentMonthInChinese() {
+      var monthsInChinese = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var currentMonth = currentDate.getMonth(); // getMonth() 返回的月份是从 0 开始的（0-11）
+      this.nowMonthTxt = monthsInChinese[currentMonth];
+      this.nowMonthDate = currentYear + "-" + (currentMonth + 1);
+    },
+    // 年月切换
+    getNowYearMonth: function getNowYearMonth(type) {
+      var input = this.nowMonthDate;
+      var _input$split$map = input.split('-').map(Number),
+        _input$split$map2 = (0, _slicedToArray2.default)(_input$split$map, 2),
+        year = _input$split$map2[0],
+        month = _input$split$map2[1];
+      if (type == 1) {
+        //上一个月
+        if (month === 1) {
+          year -= 1;
+          month = 12;
+        } else {
+          month -= 1;
+        }
+      } else {
+        if (month === 12) {
+          year += 1;
+          month = 1;
+        } else {
+          month += 1;
+        }
+      }
+      var previousMonth = "".concat(year, "-").concat(month.toString().padStart(2, '0'));
+      var monthsInChinese = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+      this.nowMonthTxt = monthsInChinese[parseInt(previousMonth.split("-")[1] - 1)];
+      console.log(previousMonth);
+      this.nowMonthDate = previousMonth;
+      this.gGetUserSign();
+    },
+    // 返回上一页
     toback1: function toback1() {
       uni.navigateBack({
         delta: 1

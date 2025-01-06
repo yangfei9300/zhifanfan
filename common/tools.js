@@ -65,7 +65,7 @@ var tools = {
 	},
 	// 验证手机号
 	isphone(phone) {
-		if (!(/^1[3456789]\d{9}$/.test(phone))) {
+		if (!(/^1[23456789]\d{9}$/.test(phone))) {
 			return false;
 		}
 		return true;
@@ -146,7 +146,7 @@ var tools = {
 	
 	/**判断是否是手机号**/
 	isPhoneNumber(tel) {
-	    var reg =/^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+	    var reg =/^0?1[2|3|4|5|6|7|8][0-9]\d{8}$/;
 	    return reg.test(tel);
 	}
 }

@@ -12,7 +12,7 @@
 
 .goodname {
 	width: 292rpx;
-	height: 80rpx;
+	min-height: 40rpx;
 	line-height: 40rpx;
 	text-align: left;
 	font-size: 28rpx;

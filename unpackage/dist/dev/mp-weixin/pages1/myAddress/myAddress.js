@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
+/* WEBPACK VAR INJECTION */(function(uni, wx) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -169,12 +169,122 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      addressList: []
+    };
+  },
+  onShow: function onShow() {
+    this.getAddList();
   },
   methods: {
+    address11: function address11(info) {
+      var _this = this;
+      var url = this.$paths.addUserAddress;
+      var userInfo = uni.getStorageSync("userInfo");
+      var data = {
+        uuid: userInfo.id,
+        province: info.provinceName,
+        city: info.cityName,
+        area: info.countyName,
+        name: info.userName,
+        phone: info.telNumber,
+        address: info.detailInfo,
+        type: "0"
+      };
+      this.$axios.axios('POST', url, data).then(function (res) {
+        if (res.code == 1) {
+          _this.$tools.showToast("提交成功");
+          setTimeout(function (res) {
+            uni.navigateBack({
+              delta: 1
+            });
+          }, 1000);
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 选择微信地址
+    chooesAddress: function chooesAddress() {
+      var _this2 = this;
+      console.log("--");
+      wx.chooseAddress({
+        success: function success(res) {
+          _this2.address11(res);
+        },
+        complete: function complete(res) {
+          console.log('res', res);
+        }
+      });
+    },
+    // 删除地址
+    todel: function todel(item) {
+      var _this3 = this;
+      var userInfo = uni.getStorageSync("userInfo");
+      var data = {
+        'uuid': userInfo.id,
+        'address_id': item.address_id
+      };
+      this.$axios.axios('POST', this.$paths.delUserAddress, data).then(function (res) {
+        if (res.code == 1) {
+          _this3.$tools.showToast("删除成功");
+          setTimeout(function (res) {
+            _this3.getAddList();
+          }, 1000);
+        } else {
+          _this3.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 删除
+    isdelModel: function isdelModel(item) {
+      var _this4 = this;
+      uni.showModal({
+        title: '提示',
+        content: '确认要删除吗？',
+        success: function success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定', item);
+            _this4.todel(item);
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        }
+      });
+    },
+    // 获取地址列表
+    getAddList: function getAddList() {
+      var _this5 = this;
+      var userInfo = uni.getStorageSync("userInfo");
+      var data = {
+        'uuid': userInfo.id
+      };
+      this.$axios.axios('POST', this.$paths.getUserAddress, data).then(function (res) {
+        if (res.code == 1) {
+          _this5.addressList = res.data;
+        } else {
+          _this5.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 去添加
     toadd: function toadd() {
+      uni.navigateTo({
+        url: "/pages1/addAddress/addAddress"
+      });
+    },
+    toupdate: function toupdate(item) {
+      uni.setStorageSync("addressUpdate", item);
       uni.navigateTo({
         url: "/pages1/addAddress/addAddress"
       });
@@ -182,7 +292,7 @@ var _default = {
   }
 };
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
 

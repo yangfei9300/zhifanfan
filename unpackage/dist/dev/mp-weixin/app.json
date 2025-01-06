@@ -18,7 +18,9 @@
     "pages2/gldyId/gldyId",
     "pages2/qiandao/qiandao",
     "pages2/orderZh/orderZh",
-    "pages2/trueOrder/trueOrder"
+    "pages2/trueOrder/trueOrder",
+    "pages2/sousuo/sousuo",
+    "pages2/xinwens/xinwens"
   ],
   "subPackages": [],
   "window": {
@@ -65,5 +67,11 @@
       }
     ]
   },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdateBackground",
+    "chooseAddress"
+  ],
   "usingComponents": {}
 }

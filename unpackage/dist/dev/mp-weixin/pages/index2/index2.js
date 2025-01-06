@@ -101,10 +101,10 @@ var components
 try {
   components = {
     vTabs: function () {
-      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 199))
+      return __webpack_require__.e(/*! import() | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then(__webpack_require__.bind(null, /*! @/components/v-tabs/v-tabs.vue */ 215))
     },
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 208))
     },
   }
 } catch (e) {
@@ -232,6 +232,11 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -250,7 +255,10 @@ var _default = {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
-      }]
+      }],
+      goodList1: [],
+      userInfo: null,
+      goodTypeList: []
     };
   },
   onLoad: function onLoad() {
@@ -265,10 +273,100 @@ var _default = {
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
     this.goodHight = bili * 494;
+    this.getGoodType();
+    this.getJingxuan();
+  },
+  onShow: function onShow() {
+    var userInfo = uni.getStorageSync("userInfo");
+    if (userInfo) {
+      this.userInfo = userInfo;
+      this.getUserInfo();
+    }
   },
   methods: {
+    // 获取精选
+    getJingxuan: function getJingxuan() {
+      var _this = this;
+      var data = {
+        'type': '1',
+        'cate': '',
+        'is_selection': '' //1是精选
+      };
+
+      if (this.current > 0) {
+        data.cate = this.goodTypeList[this.current].id;
+      }
+      this.$axios.axios('POST', this.$paths.getGoodsList, data).then(function (res) {
+        if (res.code == 1) {
+          var goodList1 = res.data;
+          for (var a = 0; a < goodList1.length; a++) {
+            goodList1[a].gt = 1;
+            goodList1[a].xinpin = false;
+            goodList1[a].remai = false;
+            for (var b = 0; b < goodList1[a].marks.length; b++) {
+              if (goodList1[a].marks[b] == '新品') {
+                goodList1[a].xinpin = true;
+              } else if (goodList1[a].marks[b] == '热卖') {
+                goodList1[a].remai = true;
+              }
+            }
+          }
+          _this.goodList1 = goodList1;
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取商品分类
+    getGoodType: function getGoodType() {
+      var _this2 = this;
+      var data = {};
+      this.$axios.axios('POST', this.$paths.getGoodsCate, data).then(function (res) {
+        if (res.code == 1) {
+          var goodTypeList = res.data;
+          for (var a = 0; a < goodTypeList.length; a++) {
+            goodTypeList[a].is = false;
+          }
+          var obg = {
+            id: -1,
+            'is': true,
+            'name': '全部'
+          };
+          var list = [obg];
+          for (var a = 0; a < goodTypeList.length; a++) {
+            goodTypeList[a].is = false;
+            list.push(goodTypeList[a]);
+          }
+          _this2.goodTypeList = list;
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    getUserInfo: function getUserInfo() {
+      var _this3 = this;
+      var data = {
+        uuid: this.userInfo.id
+      };
+      this.$axios.axios('POST', this.$paths.getUserData, data).then(function (res) {
+        if (res.code == 1) {
+          uni.setStorageSync("userInfo", _this3.userInfo);
+          _this3.userInfo = res.data;
+        } else {
+          _this3.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
     changeTab: function changeTab(index) {
       console.log('当前选中的项：' + index);
+      this.current = index;
+      this.getJingxuan();
     }
   }
 };

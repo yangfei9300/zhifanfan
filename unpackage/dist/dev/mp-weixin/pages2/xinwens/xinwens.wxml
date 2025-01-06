@@ -1,0 +1,1 @@
+<view><view class="p-all-20"><rich-text nodes="{{Info.content}}"></rich-text></view></view>

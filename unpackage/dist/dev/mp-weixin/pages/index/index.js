@@ -101,7 +101,7 @@ var components
 try {
   components = {
     homeGoodItem: function () {
-      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 192))
+      return __webpack_require__.e(/*! import() | components/homeGoodItem/homeGoodItem */ "components/homeGoodItem/homeGoodItem").then(__webpack_require__.bind(null, /*! @/components/homeGoodItem/homeGoodItem.vue */ 208))
     },
   }
 } catch (e) {
@@ -322,7 +322,9 @@ var _default = {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
-      }]
+      }],
+      goodList1: [],
+      banners: []
     };
   },
   onLoad: function onLoad() {
@@ -332,12 +334,111 @@ var _default = {
     var systemInfo = uni.getSystemInfoSync();
     this.systemInfo = systemInfo;
     console.log(systemInfo);
+    this.getcode();
+    this.getGoods();
+    this.getBanners();
   },
   onPageScroll: function onPageScroll(res) {
     console.log("--", res);
     this.scrollHeight = res.scrollTop;
   },
   methods: {
+    // 获取首页轮播图、
+    getBanners: function getBanners() {
+      var _this = this;
+      var data = {};
+      this.$axios.axios('POST', this.$paths.homeSlider, data).then(function (res) {
+        if (res.code == 1) {
+          _this.banners = res.data;
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取首页推荐
+    getGoods: function getGoods() {
+      var _this2 = this;
+      var data = {
+        'type': '2',
+        'is_selection': '1' //1是精选
+      };
+
+      this.$axios.axios('POST', this.$paths.getGoodsList, data).then(function (res) {
+        if (res.code == 1) {
+          console.log('--', res);
+          var goodList1 = res.data;
+          for (var a = 0; a < goodList1.length; a++) {
+            goodList1[a].gt = 2;
+            goodList1[a].xinpin = false;
+            goodList1[a].remai = false;
+            for (var b = 0; b < goodList1[a].marks.length; b++) {
+              if (goodList1[a].marks[b] == '新品') {
+                goodList1[a].xinpin = true;
+              } else if (goodList1[a].marks[b] == '热卖') {
+                goodList1[a].remai = true;
+              }
+            }
+          }
+          console.log('--', goodList1);
+          _this2.goodList1 = goodList1;
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取个人信息
+    getUserInfo: function getUserInfo(userInfo) {
+      var _this3 = this;
+      var data = {
+        uuid: userInfo.id
+      };
+      this.$axios.axios('POST', this.$paths.getUserData, data).then(function (res) {
+        if (res.code == 1) {
+          userInfo.credit_balance = res.data.credit_balance;
+          uni.setStorageSync("userInfo", userInfo);
+        } else {
+          _this3.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取code
+    getcode: function getcode() {
+      var _this4 = this;
+      uni.login({
+        success: function success(res) {
+          _this4.toLogin(res.code);
+        },
+        fail: function fail(res) {
+          _this4.$tools.showToast("登录出错");
+        },
+        complete: function complete(res) {
+          console.log("--", res);
+        }
+      });
+    },
+    // 登录接口
+    toLogin: function toLogin(code) {
+      var _this5 = this;
+      var data = {
+        code: code
+      };
+      this.$axios.axios('POST', this.$paths.apilogin, data).then(function (res) {
+        if (res.code == 1) {
+          _this5.getUserInfo(res.data);
+        } else {
+          _this5.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 跳转界面
     toqiandao: function toqiandao(index, type) {
       if (index == 1) {
         uni.navigateTo({

@@ -11008,48 +11008,69 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = exports.BASE_URL = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 // 项目域名
-var BASE_URL = 'https://lq.imjiayi.com/api';
+var BASE_URL = 'https://zff.imjiayi.com';
 // export const BASE_URL = 'https://frdhwapi.zsyflive.com/api'
 
 //----------项目接口请求路径-----------
 // 登录  
 exports.BASE_URL = BASE_URL;
-var apilogin = BASE_URL + '/api/login';
-// 获取对答如流所有题目  
-var getQuestion = BASE_URL + '/api/getQuestion';
-// 获取答题状态  
-var getTestStatus = BASE_URL + '/api/getTestStatus';
-// 提交答案  
-var apiputAnswer = BASE_URL + '/api/putAnswer';
-// 获取用户列表  
-var getTestList = BASE_URL + '/api/getTestList';
-// 判断是否可以打分
-var markClick = BASE_URL + '/api/markClick';
-// 获取已答题的列表
-var getTestInfo = BASE_URL + '/api/getTestInfo';
-// 提交分数
-var markTest = BASE_URL + '/api/markTest';
-// 胸有成竹提交分数
-var markPut = BASE_URL + '/api/markPut';
-// 获取测试题的接口  
-var _default = (0, _defineProperty2.default)({
-  getQuestion: getQuestion,
-  markPut: markPut,
-  markTest: markTest,
-  getTestInfo: getTestInfo,
-  markClick: markClick,
-  getTestList: getTestList,
-  apiputAnswer: apiputAnswer,
-  getTestStatus: getTestStatus,
-  apilogin: apilogin
-}, "getQuestion", getQuestion);
+var apilogin = BASE_URL + '/api/user/login';
+// 获取个人信息  /api/user/getUserData
+var getUserData = BASE_URL + '/api/user/getUserData';
+// 添加收获地址
+var addUserAddress = BASE_URL + '/api/user/addUserAddress';
+// 获取地址列表
+var getUserAddress = BASE_URL + '/api/user/getUserAddress';
+// 删除地址 /api/user/delUserAddress
+var delUserAddress = BASE_URL + '/api/user/delUserAddress';
+// 修改地址
+var updateUserAddress = BASE_URL + '/api/user/updateUserAddress';
+// 获取商品分类 /api/shop/getGoodsCate
+var getGoodsCate = BASE_URL + '/api/shop/getGoodsCate';
+// 点击签到 /api/sign/userSign
+var getuserSign = BASE_URL + '/api/sign/userSign';
+// 获取签到数据 /api/sign/getUserSign 
+var getUserSign1 = BASE_URL + '/api/sign/getUserSign';
+// 获取商品列表  
+var getGoodsList = BASE_URL + '/api/shop/getGoodsList';
+// 获取轮播图
+var homeSlider = BASE_URL + '/api/page/homeSlider';
+// 获取能量心语轮播图
+var momentSlider = BASE_URL + '/api/page/momentSlider';
+// 新闻详情  /api/page/getNews
+var getNews = BASE_URL + '/api/page/getNews';
+// 获取商品详情
+var getGoodsInfo = BASE_URL + '/api/shop/getGoodsInfo';
+// 加入购物车  /api/car/addCar
+var addCar = BASE_URL + '/api/car/addCar';
+// 获取购物车
+var getCarList = BASE_URL + '/api/car/getCarList';
+// 删除购物车
+var delCar = BASE_URL + '/api/car/delCar';
+var _default = {
+  delCar: delCar,
+  getCarList: getCarList,
+  addCar: addCar,
+  getGoodsInfo: getGoodsInfo,
+  getNews: getNews,
+  momentSlider: momentSlider,
+  homeSlider: homeSlider,
+  getGoodsList: getGoodsList,
+  getUserSign1: getUserSign1,
+  getuserSign: getuserSign,
+  getGoodsCate: getGoodsCate,
+  updateUserAddress: updateUserAddress,
+  delUserAddress: delUserAddress,
+  getUserAddress: getUserAddress,
+  addUserAddress: addUserAddress,
+  apilogin: apilogin,
+  getUserData: getUserData
+};
 exports.default = _default;
 
 /***/ }),
@@ -11134,7 +11155,7 @@ var tools = {
   },
   // 验证手机号
   isphone: function isphone(phone) {
-    if (!/^1[3456789]\d{9}$/.test(phone)) {
+    if (!/^1[23456789]\d{9}$/.test(phone)) {
       return false;
     }
     return true;
@@ -11208,7 +11229,7 @@ var tools = {
     return Y + M + D + h + m + s;
   },
   /**判断是否是手机号**/isPhoneNumber: function isPhoneNumber(tel) {
-    var reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+    var reg = /^0?1[2|3|4|5|6|7|8][0-9]\d{8}$/;
     return reg.test(tel);
   }
 };

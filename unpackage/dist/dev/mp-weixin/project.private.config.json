@@ -4,6 +4,111 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages1/userInfo/userInfo",
+          "pathName": "pages1/userInfo/userInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/myChart/myChart",
+          "pathName": "pages1/myChart/myChart",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/goodInfo/goodInfo",
+          "pathName": "pages1/goodInfo/goodInfo",
+          "query": "id=G8355487567449293681",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index3/index3",
+          "pathName": "pages/index3/index3",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index2/index2",
+          "pathName": "pages/index2/index2",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages2/sousuo/sousuo",
+          "pathName": "pages2/sousuo/sousuo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/userInfo/userInfo",
+          "pathName": "pages1/userInfo/userInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index41/index41",
+          "pathName": "pages/index41/index41",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index41/index41",
+          "pathName": "pages/index41/index41",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages2/qiandao/qiandao",
+          "pathName": "pages2/qiandao/qiandao",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/myAddress/myAddress",
+          "pathName": "pages1/myAddress/myAddress",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index5/index5",
+          "pathName": "pages/index5/index5",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/addAddress/addAddress",
+          "pathName": "pages1/addAddress/addAddress",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages1/myAddress/myAddress",
+          "pathName": "pages1/myAddress/myAddress",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages2/orderZh/orderZh",
           "pathName": "pages2/orderZh/orderZh",
           "query": "",

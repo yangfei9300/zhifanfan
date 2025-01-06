@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -231,13 +231,107 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
-    return {};
+    return {
+      form: {
+        uuid: "",
+        province: "",
+        city: "",
+        area: "",
+        name: "",
+        phone: "",
+        address: "",
+        type: "0"
+      }
+    };
   },
-  methods: {}
+  onLoad: function onLoad() {
+    var addressUpdate = uni.getStorageSync("addressUpdate");
+    if (addressUpdate) {
+      this.form = addressUpdate;
+    }
+    var userInfo = uni.getStorageSync("userInfo");
+    this.form.uuid = userInfo.id;
+  },
+  onUnload: function onUnload() {
+    uni.removeStorageSync("addressUpdate");
+  },
+  methods: {
+    // 提交信息
+    toSubmit: function toSubmit() {
+      var _this = this;
+      if (!this.isSubmit()) {
+        return;
+      }
+      var data = this.form;
+      var url = this.$paths.addUserAddress;
+      if (this.form.address_id) {
+        url = this.$paths.updateUserAddress;
+      }
+      this.$axios.axios('POST', url, data).then(function (res) {
+        if (res.code == 1) {
+          _this.$tools.showToast("提交成功");
+          setTimeout(function (res) {
+            uni.navigateBack({
+              delta: 1
+            });
+          }, 1000);
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 判断是否可以提交
+    isSubmit: function isSubmit() {
+      if (this.form.name == '') {
+        this.$tools.showToast("请输入收件人姓名");
+        return false;
+      }
+      if (this.form.phone == '') {
+        this.$tools.showToast("请输入手机号");
+        return false;
+      }
+      if (!this.$tools.isphone(this.form.phone)) {
+        this.$tools.showToast("请输入正确的手机号");
+        return false;
+      }
+      if (this.form.province == '') {
+        this.$tools.showToast("请选择地区");
+        return false;
+      }
+      if (this.form.address == '') {
+        this.$tools.showToast("请输入详细地址");
+        return false;
+      }
+      return true;
+    },
+    // 默认点击
+    morenClick: function morenClick() {
+      this.form.type = this.form.type == 1 ? 0 : 1;
+    },
+    // 地区选择改变
+    diquChange: function diquChange(res) {
+      console.log('[]', res);
+      this.form.province = res.detail.value[0];
+      this.form.city = res.detail.value[1];
+      this.form.area = res.detail.value[2];
+    }
+  }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

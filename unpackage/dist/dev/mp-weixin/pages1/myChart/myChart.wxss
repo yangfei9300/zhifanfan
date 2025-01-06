@@ -28,4 +28,13 @@ page{
 	padding:0rpx 10rpx;
 	margin:0rpx 10rpx;
 }
+.jifen{
+	color: white;
+	width: 40rpx;
+	font-size: 30rpx;
+	text-align: center;
+	line-height:40rpx;
+	background-color: red;
+	border-radius: 50%;
+}
 

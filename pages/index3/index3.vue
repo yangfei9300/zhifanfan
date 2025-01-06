@@ -24,9 +24,10 @@
 					}"></view>
 
 				<swiper class="w-710 h-280 m-all-20">
-					<swiper-item class="w-710 h-280">
-						<image src="https://shandongtibohui.zsyflive.com/profile/zhifanfan/neng4xxx.png"
-							class="w-710 h-280"></image>
+					<swiper-item class="w-710 h-280" v-for="(item,index) in banners"
+					@click.stop="clickItem(item)"
+					>
+						<image :src="item.img" mode="aspectFill" class="w-710 h-280"></image>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -89,6 +90,7 @@
 				systemInfo: {}, //设备信息
 				goodHight: 0,
 				scrollHeight: 0,
+				banners: []
 			}
 		},
 		onLoad() {
@@ -102,12 +104,43 @@
 			var bili = systemInfo.windowWidth / 750;
 			console.log("比例", bili);
 			this.goodHight = bili * 527;
+
+			this.getbanners();
 		},
 		onPageScroll(res) {
 			console.log("--", res);
 			this.scrollHeight = res.scrollTop;
 		},
 		methods: {
+			clickItem(item){
+				if(item.goods_type=='SG'){//商品详情页
+					uni.navigateTo({
+						url:"/pages1/goodInfo/goodInfo?id="+item.code,
+					})
+				}else if(item.goods_type=='NS'){//商品详情页
+					uni.navigateTo({
+						url:"/pages2/xinwens/xinwens?id="+item.code,
+					})
+				}
+			},
+			// 获取轮播图
+			getbanners() {
+				var data = {
+
+				};
+				this.$axios
+					.axios('POST', this.$paths.momentSlider, data)
+					.then((res) => {
+						if (res.code == 1) {
+							this.banners = res.data;
+						} else {
+							this.$tools.showToast(res.msg);
+						}
+					})
+					.catch((err) => {
+						console.log('错误回调', err);
+					});
+			},
 			toInfo() {
 				uni.navigateTo({
 					url: "/pages1/nengliangInfo/nengliangInfo"

@@ -43,13 +43,29 @@ page{
 	border-radius: 20rpx;
 	margin-bottom: 20rpx;
 }
-.typetxtsel{
+.typetxtsel1{
 	color: #647015;
 	font-weight: bold;
 	-webkit-text-stroke: 1px #FF9E9E;
+	margin-right: 25rpx;
+}
+.typetxtsel{
+	color: #000000;
+	font-weight: bold;
+	margin-right: 25rpx;
 }
 .ditypet{
-	position: relative;bottom: -20rpx;font-weight: bold;
+	position: relative;
+	bottom: -20rpx;
+	font-weight: bold;
 	color: black;
+}
+.ditypet1{
+	position: relative;
+	bottom: -20rpx;
+	font-weight: bold;
+	color: #647015;
+	color: black;
+	-webkit-text-stroke: 1px #FF9E9E;
 }
 

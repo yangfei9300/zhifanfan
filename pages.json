@@ -141,6 +141,20 @@
 				"navigationBarBackgroundColor": "#FFA0C1",
 		"navigationBarTextStyle": "white"
 			}
+		},
+		{
+			"path" : "pages2/sousuo/sousuo",
+			"style" : 
+			{
+				"navigationBarTitleText" : "搜索"
+			}
+		},
+		{
+			"path" : "pages2/xinwens/xinwens",
+			"style" : 
+			{
+				"navigationBarTitleText" : "详情"
+			}
 		}
 	],
 	"globalStyle": {

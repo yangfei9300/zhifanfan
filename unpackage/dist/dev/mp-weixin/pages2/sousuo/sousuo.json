@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "home-good-item": "/components/homeGoodItem/homeGoodItem"
+  }
+}

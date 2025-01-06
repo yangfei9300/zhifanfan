@@ -224,6 +224,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
@@ -232,7 +233,8 @@ var _default = {
       systemInfo: {},
       //设备信息
       goodHight: 0,
-      scrollHeight: 0
+      scrollHeight: 0,
+      banners: []
     };
   },
   onLoad: function onLoad() {
@@ -246,12 +248,40 @@ var _default = {
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
     this.goodHight = bili * 527;
+    this.getbanners();
   },
   onPageScroll: function onPageScroll(res) {
     console.log("--", res);
     this.scrollHeight = res.scrollTop;
   },
   methods: {
+    clickItem: function clickItem(item) {
+      if (item.goods_type == 'SG') {
+        //商品详情页
+        uni.navigateTo({
+          url: "/pages1/goodInfo/goodInfo?id=" + item.code
+        });
+      } else if (item.goods_type == 'NS') {
+        //商品详情页
+        uni.navigateTo({
+          url: "/pages2/xinwens/xinwens?id=" + item.code
+        });
+      }
+    },
+    // 获取轮播图
+    getbanners: function getbanners() {
+      var _this = this;
+      var data = {};
+      this.$axios.axios('POST', this.$paths.momentSlider, data).then(function (res) {
+        if (res.code == 1) {
+          _this.banners = res.data;
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
     toInfo: function toInfo() {
       uni.navigateTo({
         url: "/pages1/nengliangInfo/nengliangInfo"

@@ -248,11 +248,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -261,7 +256,7 @@ var _default = {
       systemInfo: {},
       //设备信息
       goodHight: 0,
-      goodList: [{
+      goodList1: [{
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good11.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good2.png'
@@ -269,7 +264,10 @@ var _default = {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good3.png'
       }, {
         'src': 'https://shandongtibohui.zsyflive.com/profile/zhifanfan/good4.png'
-      }]
+      }],
+      goodTypeList: [],
+      selIndex: -1,
+      goodList: [] //商品列表
     };
   },
   onLoad: function onLoad() {
@@ -283,8 +281,70 @@ var _default = {
     var bili = systemInfo.windowWidth / 750;
     console.log("比例", bili);
     this.goodHight = bili * 720;
+    this.getGoodType();
+    this.getJingxuan();
   },
   methods: {
+    selIndexClick: function selIndexClick(index) {
+      this.selIndex = index;
+      this.getJingxuan();
+    },
+    // 获取精选
+    getJingxuan: function getJingxuan() {
+      var _this = this;
+      var data = {
+        'type': '2',
+        'cate': '',
+        'is_selection': '' //1是精选
+      };
+
+      if (this.selIndex == -1) {
+        data.is_selection = '1';
+      } else {
+        data.cate = this.goodTypeList[this.selIndex].id;
+      }
+      this.$axios.axios('POST', this.$paths.getGoodsList, data).then(function (res) {
+        if (res.code == 1) {
+          var goodList1 = res.data;
+          for (var a = 0; a < goodList1.length; a++) {
+            goodList1[a].gt = 2;
+            goodList1[a].xinpin = false;
+            goodList1[a].remai = false;
+            for (var b = 0; b < goodList1[a].marks.length; b++) {
+              if (goodList1[a].marks[b] == '新品') {
+                goodList1[a].xinpin = true;
+              } else if (goodList1[a].marks[b] == '热卖') {
+                goodList1[a].remai = true;
+              }
+            }
+          }
+          _this.goodList = goodList1;
+        } else {
+          _this.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 获取商品分类
+    getGoodType: function getGoodType() {
+      var _this2 = this;
+      var data = {};
+      this.$axios.axios('POST', this.$paths.getGoodsCate, data).then(function (res) {
+        if (res.code == 1) {
+          var goodTypeList = res.data;
+          for (var a = 0; a < goodTypeList.length; a++) {
+            goodTypeList[a].is = false;
+          }
+          _this2.goodTypeList = goodTypeList;
+        } else {
+          _this2.$tools.showToast(res.msg);
+        }
+      }).catch(function (err) {
+        console.log('错误回调', err);
+      });
+    },
+    // 查看规则
     toguize: function toguize() {
       uni.navigateTo({
         url: "/pages1/guizeshuoming/guizeshuoming",

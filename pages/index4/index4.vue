@@ -69,8 +69,6 @@
 			height:(systemInfo.windowHeight-goodHight)+'px',
 		}"
 		>
-			
-		
 		<view class="roww rowsb p-all-25" >
 			<view class="colonn">
 				<homeGoodItem 
@@ -85,7 +83,6 @@
 				v-for="(item,index) in goodList"
 				  :obg="item" 
 				 class="">
-					
 				</homeGoodItem>
 			</view>
 		</view>
